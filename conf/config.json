@@ -1,0 +1,16 @@
+{
+    "server": {
+        "ip": "localhost",
+        "port": 50051        
+    },
+    "worker": {
+        "workerId": "001",
+        "publicIp": "172.20.10.8",
+        "publicPort": 44445,
+        "useUdp": true
+    },
+    "rtc" : {
+        "maxNackWaitTime": 5000,
+        "maxNackRetries": 5
+    }
+}

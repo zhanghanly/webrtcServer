@@ -1,0 +1,252 @@
+syntax = "proto3";
+
+package server;
+option go_package = "./proto";
+
+message ListenInfo {
+  string protocol = 1; 
+  string ip = 2;             
+  uint32 port = 3;         
+  string announced_address = 4; 
+  string announced_ip = 5;
+  uint32 announced_port = 6;
+  bool tcp = 7;
+  bool ipv6Only = 8;
+  bool udpReusePort = 9;
+  uint32 recv_buffer_size = 10;
+  uint32 send_buffer_size = 11;
+}
+
+message CreateRouterRequest {
+  string worker_id = 1;
+  string room_id = 2;
+  string serverId = 3;
+  ListenInfo info = 4;
+}
+
+message CreateRouterResponse {
+  string router_id = 1;
+  bool success = 2;
+  string error_detail = 3;
+}
+
+enum TransportDirection {
+  DIRECTION_AUTO = 0;
+  DIRECTION_SEND = 1;
+  DIRECTION_RECV = 2;
+  DIRECTION_BOTH = 3;
+}
+
+message DtlsFingerprint {
+  string algorithm = 1;
+  string value = 2;
+}
+
+message IceCandidate {
+  string foundation = 1;
+  uint32 priority = 2;
+  string ip = 3;
+  string protocol = 4;
+  uint32 port = 5;
+  string type = 6;
+  string tcp_type = 7;
+}
+
+message CreateTransportRequest {
+  string worker_id = 1;
+  string router_id = 2;
+  string transport_id = 3;
+  TransportDirection direction = 4;
+  bool enable_udp = 5;
+  bool enable_tcp = 6;
+  bool prefer_udp = 7;
+  bool prefer_tcp = 8;
+}
+
+message CreateTransportResponse {
+  string transport_id = 1;
+  string ice_ufrag = 2;
+  string ice_pwd = 3;
+  repeated IceCandidate ice_candidates = 4;
+  repeated DtlsFingerprint dtls_fingerprints = 5;
+  string dtls_role = 6;
+  bool success = 7;
+  string error_detail = 8;
+}
+
+message ConnectTransportRequest {
+  string worker_id = 1;
+  string router_id = 2;
+  string transport_id = 3;
+  string dtls_role = 4;
+  repeated DtlsFingerprint dtls_fingerprints = 5;
+}
+
+message ConnectTransportResponse {
+  string transport_id = 1;
+  bool success = 2;
+  string error_detail = 3;
+}
+
+enum MediaKind {
+  MEDIA_KIND_AUDIO = 0;
+  MEDIA_KIND_VIDEO = 1;
+}
+
+message Rtcp {
+  string cname = 1; 
+  bool reducedSize = 2;
+}
+
+message RtcpFeedback {
+  string type = 1;
+  string parameter = 2;
+} 
+
+message Codec {
+  string mimeType = 1;
+  uint32 payloadType = 2;
+  uint32 clockRate = 3;
+  uint32 channels = 4;
+  string parameters = 5;
+  repeated RtcpFeedback rtcpFeedbacks = 6;
+}
+
+message HeadExtension {
+   string uri = 1;
+   uint32 id = 2;
+   bool encrypt = 3;
+   string parameters =4;
+}
+
+message Encoding {
+  bool active = 1;
+  string scalabilityMode = 2;
+  uint32 scaleResolutionDownBy = 3;
+  uint32 maxBitrate = 4;
+  string rid = 5;
+  bool dtx = 6;
+  uint32 ssrc = 7;
+  bool hasRtx = 8;
+  uint32 rtxSsrc = 9;
+}
+
+message PayloadMap {
+  uint32 payloadType = 1;
+  uint32 mappedPayloadType = 2;
+}
+
+message EncodingMap {
+  string rid = 1;
+  uint32 ssrc = 2;
+  uint32 mappedSsrc = 3;
+}
+
+message RtpMapping {
+  repeated PayloadMap PayloadMap = 1;
+  repeated EncodingMap encodingMap = 2;
+}
+
+message RtpParameters {
+  string mid = 1;
+  string msid = 2;
+  Rtcp rtcp = 3;
+  repeated Codec codecs = 4;
+  repeated HeadExtension headExtensions = 5;
+  repeated Encoding encodings = 6;
+  RtpMapping rtpMapping = 7;
+}
+
+message ProduceRequest {
+  string router_id = 1;
+  string transport_id = 2;
+  string producer_id = 3;
+  string kind = 4;
+  string app_data = 5;
+  RtpParameters rtpParameters = 6;
+}
+
+message ProduceResponse {
+  string producer_id = 1;
+  bool success = 2;
+  string error_detail = 3;
+}
+
+message ConsumeRequest {
+  string router_id = 1;
+  string transport_id = 2;
+  string producer_id = 3;
+  string consumer_id = 4;
+  string kind = 5;
+  string app_data = 6;
+  RtpParameters rtpParameters = 7;
+}
+
+message ConsumeResponse {
+  string consumer_id = 1;
+  string producer_id = 2;
+  MediaKind kind = 3;
+  bool success = 4;
+  string error_detail = 5;
+}
+
+message WorkerRegister {
+  string worker_id = 1;
+  string public_ip = 2;
+  uint32 public_port = 3;
+  bool   use_udp = 4;
+  uint32 router_count = 5;
+  uint32 cpu_usage = 6;
+  uint32 memory_usage = 7;
+}
+
+message WorkerKeepalive {
+  string worker_id = 1;
+  uint32 router_count = 2;
+  uint32 cpu_usage = 3;
+  uint32 memory_usage = 4;
+}
+
+message WorkerRegisterResponse {
+  string worker_id = 1;
+  bool success = 2;
+  string error_detail = 3;
+}
+
+message WorkerKeepaliveResponse {
+  bool success = 1;
+}
+
+message WorkerToServer {
+  uint64 seq_id = 1;
+
+  oneof payload {
+    CreateRouterResponse create_router_res = 2;
+    CreateTransportResponse create_transport_res =3;
+    ConnectTransportResponse connect_transport_res =4;
+    ProduceResponse produce_res = 5;
+    ConsumeResponse consumer_res = 6;
+    WorkerRegister worker_register = 7;
+    WorkerKeepalive worker_keepalive = 8;
+    string stats_push = 9;
+  }
+}
+
+message ServerToWorker {
+  uint64 seq_id = 1;
+
+  oneof payload {
+    CreateRouterRequest create_router_req = 2;
+    CreateTransportRequest create_transport_req =3;
+    ConnectTransportRequest connect_transport_req =4;
+    ProduceRequest produce_req = 5;
+    ConsumeRequest consumer_req = 6;
+    string global_notification = 7;
+    WorkerRegisterResponse worker_register_res = 8;
+    WorkerKeepaliveResponse worker_keepalive_res = 9;
+  }
+}
+
+service WebRtcService {
+  rpc Sync(stream WorkerToServer) returns (stream ServerToWorker);
+}
