@@ -679,7 +679,6 @@ namespace RTC
 			{
 				// Update MID RTP extension value.
 				const auto& mid = consumer->GetRtpParameters().mid;
-
 				if (!mid.empty())
 				{
 					packet->UpdateMid(mid);
@@ -1139,13 +1138,29 @@ namespace RTC
 			transport->addProducer(producerId, kind, rtp_params);
 		}
 	}
-        
+	
+	void Router::closeProducer(const std::string& transportId, const std::string& producerId,
+                               const std::string& kind) {
+		if (this->mapTransports.find(transportId) != this->mapTransports.end()) {
+			RTC::Transport* transport = this->mapTransports[transportId];
+			transport->closeProducer(producerId, kind);
+		}
+	}
+
 	void Router::addConsumer(const std::string& transportId, const std::string& producerId,
                              const std::string& consumerId, const std::string& kind,
                              const server::RtpParameters& rtp_params) {
 		if (this->mapTransports.find(transportId) != this->mapTransports.end()) {
 			RTC::Transport* transport = this->mapTransports[transportId];
 			transport->addConsumer(producerId, consumerId, kind, rtp_params);
+		}
+	}
+        
+	void Router::closeConsumer(const std::string& transportId, const std::string& producerId,
+                               const std::string& consumerId, const std::string& kind) {
+		if (this->mapTransports.find(transportId) != this->mapTransports.end()) {
+			RTC::Transport* transport = this->mapTransports[transportId];
+			transport->closeConsumer(producerId, consumerId, kind);
 		}
 	}
 

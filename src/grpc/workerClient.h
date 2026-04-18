@@ -46,6 +46,7 @@ using ProduceHandler = std::function<server::ProduceResponse(
     const std::string& producer_id,
     const std::string& kind,
     const std::string& app_data,
+    const std::string& method,
     const server::RtpParameters& rtp_parameters)>;
 
 using ConsumeHandler = std::function<server::ConsumeResponse(
@@ -55,6 +56,7 @@ using ConsumeHandler = std::function<server::ConsumeResponse(
     const std::string& consumer_id,
     const std::string& kind,
     const std::string& app_data,
+    const std::string& method,
     const server::RtpParameters& rtp_parameters)>;
 
 using GlobalNotificationHandler = std::function<void(const std::string& notification)>;

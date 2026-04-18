@@ -4095,7 +4095,8 @@ class ProduceRequest final :
     kProducerIdFieldNumber = 3,
     kKindFieldNumber = 4,
     kAppDataFieldNumber = 5,
-    kRtpParametersFieldNumber = 6,
+    kMethodFieldNumber = 6,
+    kRtpParametersFieldNumber = 7,
   };
   // string router_id = 1;
   void clear_router_id();
@@ -4167,7 +4168,21 @@ class ProduceRequest final :
   std::string* _internal_mutable_app_data();
   public:
 
-  // .server.RtpParameters rtpParameters = 6;
+  // string method = 6;
+  void clear_method();
+  const std::string& method() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_method(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_method();
+  PROTOBUF_NODISCARD std::string* release_method();
+  void set_allocated_method(std::string* method);
+  private:
+  const std::string& _internal_method() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_method(const std::string& value);
+  std::string* _internal_mutable_method();
+  public:
+
+  // .server.RtpParameters rtpParameters = 7;
   bool has_rtpparameters() const;
   private:
   bool _internal_has_rtpparameters() const;
@@ -4198,6 +4213,7 @@ class ProduceRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr producer_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr kind_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr app_data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr method_;
     ::server::RtpParameters* rtpparameters_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4513,7 +4529,8 @@ class ConsumeRequest final :
     kConsumerIdFieldNumber = 4,
     kKindFieldNumber = 5,
     kAppDataFieldNumber = 6,
-    kRtpParametersFieldNumber = 7,
+    kMethodFieldNumber = 7,
+    kRtpParametersFieldNumber = 8,
   };
   // string router_id = 1;
   void clear_router_id();
@@ -4599,7 +4616,21 @@ class ConsumeRequest final :
   std::string* _internal_mutable_app_data();
   public:
 
-  // .server.RtpParameters rtpParameters = 7;
+  // string method = 7;
+  void clear_method();
+  const std::string& method() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_method(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_method();
+  PROTOBUF_NODISCARD std::string* release_method();
+  void set_allocated_method(std::string* method);
+  private:
+  const std::string& _internal_method() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_method(const std::string& value);
+  std::string* _internal_mutable_method();
+  public:
+
+  // .server.RtpParameters rtpParameters = 8;
   bool has_rtpparameters() const;
   private:
   bool _internal_has_rtpparameters() const;
@@ -4631,6 +4662,7 @@ class ConsumeRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr consumer_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr kind_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr app_data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr method_;
     ::server::RtpParameters* rtpparameters_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -10003,7 +10035,57 @@ inline void ProduceRequest::set_allocated_app_data(std::string* app_data) {
   // @@protoc_insertion_point(field_set_allocated:server.ProduceRequest.app_data)
 }
 
-// .server.RtpParameters rtpParameters = 6;
+// string method = 6;
+inline void ProduceRequest::clear_method() {
+  _impl_.method_.ClearToEmpty();
+}
+inline const std::string& ProduceRequest::method() const {
+  // @@protoc_insertion_point(field_get:server.ProduceRequest.method)
+  return _internal_method();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ProduceRequest::set_method(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.method_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:server.ProduceRequest.method)
+}
+inline std::string* ProduceRequest::mutable_method() {
+  std::string* _s = _internal_mutable_method();
+  // @@protoc_insertion_point(field_mutable:server.ProduceRequest.method)
+  return _s;
+}
+inline const std::string& ProduceRequest::_internal_method() const {
+  return _impl_.method_.Get();
+}
+inline void ProduceRequest::_internal_set_method(const std::string& value) {
+  
+  _impl_.method_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ProduceRequest::_internal_mutable_method() {
+  
+  return _impl_.method_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ProduceRequest::release_method() {
+  // @@protoc_insertion_point(field_release:server.ProduceRequest.method)
+  return _impl_.method_.Release();
+}
+inline void ProduceRequest::set_allocated_method(std::string* method) {
+  if (method != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.method_.SetAllocated(method, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.method_.IsDefault()) {
+    _impl_.method_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:server.ProduceRequest.method)
+}
+
+// .server.RtpParameters rtpParameters = 7;
 inline bool ProduceRequest::_internal_has_rtpparameters() const {
   return this != internal_default_instance() && _impl_.rtpparameters_ != nullptr;
 }
@@ -10521,7 +10603,57 @@ inline void ConsumeRequest::set_allocated_app_data(std::string* app_data) {
   // @@protoc_insertion_point(field_set_allocated:server.ConsumeRequest.app_data)
 }
 
-// .server.RtpParameters rtpParameters = 7;
+// string method = 7;
+inline void ConsumeRequest::clear_method() {
+  _impl_.method_.ClearToEmpty();
+}
+inline const std::string& ConsumeRequest::method() const {
+  // @@protoc_insertion_point(field_get:server.ConsumeRequest.method)
+  return _internal_method();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ConsumeRequest::set_method(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.method_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:server.ConsumeRequest.method)
+}
+inline std::string* ConsumeRequest::mutable_method() {
+  std::string* _s = _internal_mutable_method();
+  // @@protoc_insertion_point(field_mutable:server.ConsumeRequest.method)
+  return _s;
+}
+inline const std::string& ConsumeRequest::_internal_method() const {
+  return _impl_.method_.Get();
+}
+inline void ConsumeRequest::_internal_set_method(const std::string& value) {
+  
+  _impl_.method_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ConsumeRequest::_internal_mutable_method() {
+  
+  return _impl_.method_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ConsumeRequest::release_method() {
+  // @@protoc_insertion_point(field_release:server.ConsumeRequest.method)
+  return _impl_.method_.Release();
+}
+inline void ConsumeRequest::set_allocated_method(std::string* method) {
+  if (method != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.method_.SetAllocated(method, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.method_.IsDefault()) {
+    _impl_.method_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:server.ConsumeRequest.method)
+}
+
+// .server.RtpParameters rtpParameters = 8;
 inline bool ConsumeRequest::_internal_has_rtpparameters() const {
   return this != internal_default_instance() && _impl_.rtpparameters_ != nullptr;
 }

@@ -487,7 +487,7 @@ namespace RTC
 
 		MS_DEBUG_DEV("Producer closed [consumerId:%s]", this->id.c_str());
 
-		this->shared->channelNotifier->Emit(this->id, FBS::Notification::Event::CONSUMER_PRODUCER_CLOSE);
+		//this->shared->channelNotifier->Emit(this->id, FBS::Notification::Event::CONSUMER_PRODUCER_CLOSE);
 
 		this->listener->OnConsumerProducerClosed(this);
 	}

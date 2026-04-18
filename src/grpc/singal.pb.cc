@@ -332,6 +332,7 @@ PROTOBUF_CONSTEXPR ProduceRequest::ProduceRequest(
   , /*decltype(_impl_.producer_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.kind_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.app_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.method_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.rtpparameters_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ProduceRequestDefaultTypeInternal {
@@ -366,6 +367,7 @@ PROTOBUF_CONSTEXPR ConsumeRequest::ConsumeRequest(
   , /*decltype(_impl_.consumer_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.kind_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.app_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.method_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.rtpparameters_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ConsumeRequestDefaultTypeInternal {
@@ -700,6 +702,7 @@ const uint32_t TableStruct_singal_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
   PROTOBUF_FIELD_OFFSET(::server::ProduceRequest, _impl_.producer_id_),
   PROTOBUF_FIELD_OFFSET(::server::ProduceRequest, _impl_.kind_),
   PROTOBUF_FIELD_OFFSET(::server::ProduceRequest, _impl_.app_data_),
+  PROTOBUF_FIELD_OFFSET(::server::ProduceRequest, _impl_.method_),
   PROTOBUF_FIELD_OFFSET(::server::ProduceRequest, _impl_.rtpparameters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::server::ProduceResponse, _internal_metadata_),
@@ -722,6 +725,7 @@ const uint32_t TableStruct_singal_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
   PROTOBUF_FIELD_OFFSET(::server::ConsumeRequest, _impl_.consumer_id_),
   PROTOBUF_FIELD_OFFSET(::server::ConsumeRequest, _impl_.kind_),
   PROTOBUF_FIELD_OFFSET(::server::ConsumeRequest, _impl_.app_data_),
+  PROTOBUF_FIELD_OFFSET(::server::ConsumeRequest, _impl_.method_),
   PROTOBUF_FIELD_OFFSET(::server::ConsumeRequest, _impl_.rtpparameters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::server::ConsumeResponse, _internal_metadata_),
@@ -826,15 +830,15 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 175, -1, -1, sizeof(::server::RtpMapping)},
   { 183, -1, -1, sizeof(::server::RtpParameters)},
   { 196, -1, -1, sizeof(::server::ProduceRequest)},
-  { 208, -1, -1, sizeof(::server::ProduceResponse)},
-  { 217, -1, -1, sizeof(::server::ConsumeRequest)},
-  { 230, -1, -1, sizeof(::server::ConsumeResponse)},
-  { 241, -1, -1, sizeof(::server::WorkerRegister)},
-  { 254, -1, -1, sizeof(::server::WorkerKeepalive)},
-  { 264, -1, -1, sizeof(::server::WorkerRegisterResponse)},
-  { 273, -1, -1, sizeof(::server::WorkerKeepaliveResponse)},
-  { 280, -1, -1, sizeof(::server::WorkerToServer)},
-  { 296, -1, -1, sizeof(::server::ServerToWorker)},
+  { 209, -1, -1, sizeof(::server::ProduceResponse)},
+  { 218, -1, -1, sizeof(::server::ConsumeRequest)},
+  { 232, -1, -1, sizeof(::server::ConsumeResponse)},
+  { 243, -1, -1, sizeof(::server::WorkerRegister)},
+  { 256, -1, -1, sizeof(::server::WorkerKeepalive)},
+  { 266, -1, -1, sizeof(::server::WorkerRegisterResponse)},
+  { 275, -1, -1, sizeof(::server::WorkerKeepaliveResponse)},
+  { 282, -1, -1, sizeof(::server::WorkerToServer)},
+  { 298, -1, -1, sizeof(::server::ServerToWorker)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -926,64 +930,65 @@ const char descriptor_table_protodef_singal_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "Codec\022-\n\016headExtensions\030\005 \003(\0132\025.server.H"
   "eadExtension\022#\n\tencodings\030\006 \003(\0132\020.server"
   ".Encoding\022&\n\nrtpMapping\030\007 \001(\0132\022.server.R"
-  "tpMapping\"\234\001\n\016ProduceRequest\022\021\n\trouter_i"
+  "tpMapping\"\254\001\n\016ProduceRequest\022\021\n\trouter_i"
   "d\030\001 \001(\t\022\024\n\014transport_id\030\002 \001(\t\022\023\n\013produce"
   "r_id\030\003 \001(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010app_data\030\005 \001"
-  "(\t\022,\n\rrtpParameters\030\006 \001(\0132\025.server.RtpPa"
-  "rameters\"M\n\017ProduceResponse\022\023\n\013producer_"
-  "id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024\n\014error_detai"
-  "l\030\003 \001(\t\"\261\001\n\016ConsumeRequest\022\021\n\trouter_id\030"
-  "\001 \001(\t\022\024\n\014transport_id\030\002 \001(\t\022\023\n\013producer_"
-  "id\030\003 \001(\t\022\023\n\013consumer_id\030\004 \001(\t\022\014\n\004kind\030\005 "
-  "\001(\t\022\020\n\010app_data\030\006 \001(\t\022,\n\rrtpParameters\030\007"
-  " \001(\0132\025.server.RtpParameters\"\203\001\n\017ConsumeR"
-  "esponse\022\023\n\013consumer_id\030\001 \001(\t\022\023\n\013producer"
-  "_id\030\002 \001(\t\022\037\n\004kind\030\003 \001(\0162\021.server.MediaKi"
-  "nd\022\017\n\007success\030\004 \001(\010\022\024\n\014error_detail\030\005 \001("
-  "\t\"\233\001\n\016WorkerRegister\022\021\n\tworker_id\030\001 \001(\t\022"
-  "\021\n\tpublic_ip\030\002 \001(\t\022\023\n\013public_port\030\003 \001(\r\022"
-  "\017\n\007use_udp\030\004 \001(\010\022\024\n\014router_count\030\005 \001(\r\022\021"
-  "\n\tcpu_usage\030\006 \001(\r\022\024\n\014memory_usage\030\007 \001(\r\""
-  "c\n\017WorkerKeepalive\022\021\n\tworker_id\030\001 \001(\t\022\024\n"
-  "\014router_count\030\002 \001(\r\022\021\n\tcpu_usage\030\003 \001(\r\022\024"
-  "\n\014memory_usage\030\004 \001(\r\"R\n\026WorkerRegisterRe"
-  "sponse\022\021\n\tworker_id\030\001 \001(\t\022\017\n\007success\030\002 \001"
-  "(\010\022\024\n\014error_detail\030\003 \001(\t\"*\n\027WorkerKeepal"
-  "iveResponse\022\017\n\007success\030\001 \001(\010\"\311\003\n\016WorkerT"
-  "oServer\022\016\n\006seq_id\030\001 \001(\004\0229\n\021create_router"
-  "_res\030\002 \001(\0132\034.server.CreateRouterResponse"
-  "H\000\022\?\n\024create_transport_res\030\003 \001(\0132\037.serve"
-  "r.CreateTransportResponseH\000\022A\n\025connect_t"
-  "ransport_res\030\004 \001(\0132 .server.ConnectTrans"
-  "portResponseH\000\022.\n\013produce_res\030\005 \001(\0132\027.se"
-  "rver.ProduceResponseH\000\022/\n\014consumer_res\030\006"
-  " \001(\0132\027.server.ConsumeResponseH\000\0221\n\017worke"
-  "r_register\030\007 \001(\0132\026.server.WorkerRegister"
-  "H\000\0223\n\020worker_keepalive\030\010 \001(\0132\027.server.Wo"
-  "rkerKeepaliveH\000\022\024\n\nstats_push\030\t \001(\tH\000B\t\n"
-  "\007payload\"\345\003\n\016ServerToWorker\022\016\n\006seq_id\030\001 "
-  "\001(\004\0228\n\021create_router_req\030\002 \001(\0132\033.server."
-  "CreateRouterRequestH\000\022>\n\024create_transpor"
-  "t_req\030\003 \001(\0132\036.server.CreateTransportRequ"
-  "estH\000\022@\n\025connect_transport_req\030\004 \001(\0132\037.s"
-  "erver.ConnectTransportRequestH\000\022-\n\013produ"
-  "ce_req\030\005 \001(\0132\026.server.ProduceRequestH\000\022."
-  "\n\014consumer_req\030\006 \001(\0132\026.server.ConsumeReq"
-  "uestH\000\022\035\n\023global_notification\030\007 \001(\tH\000\022=\n"
-  "\023worker_register_res\030\010 \001(\0132\036.server.Work"
-  "erRegisterResponseH\000\022\?\n\024worker_keepalive"
-  "_res\030\t \001(\0132\037.server.WorkerKeepaliveRespo"
-  "nseH\000B\t\n\007payload*d\n\022TransportDirection\022\022"
-  "\n\016DIRECTION_AUTO\020\000\022\022\n\016DIRECTION_SEND\020\001\022\022"
-  "\n\016DIRECTION_RECV\020\002\022\022\n\016DIRECTION_BOTH\020\003*7"
-  "\n\tMediaKind\022\024\n\020MEDIA_KIND_AUDIO\020\000\022\024\n\020MED"
-  "IA_KIND_VIDEO\020\0012K\n\rWebRtcService\022:\n\004Sync"
-  "\022\026.server.WorkerToServer\032\026.server.Server"
-  "ToWorker(\0010\001B\tZ\007./protob\006proto3"
+  "(\t\022\016\n\006method\030\006 \001(\t\022,\n\rrtpParameters\030\007 \001("
+  "\0132\025.server.RtpParameters\"M\n\017ProduceRespo"
+  "nse\022\023\n\013producer_id\030\001 \001(\t\022\017\n\007success\030\002 \001("
+  "\010\022\024\n\014error_detail\030\003 \001(\t\"\301\001\n\016ConsumeReque"
+  "st\022\021\n\trouter_id\030\001 \001(\t\022\024\n\014transport_id\030\002 "
+  "\001(\t\022\023\n\013producer_id\030\003 \001(\t\022\023\n\013consumer_id\030"
+  "\004 \001(\t\022\014\n\004kind\030\005 \001(\t\022\020\n\010app_data\030\006 \001(\t\022\016\n"
+  "\006method\030\007 \001(\t\022,\n\rrtpParameters\030\010 \001(\0132\025.s"
+  "erver.RtpParameters\"\203\001\n\017ConsumeResponse\022"
+  "\023\n\013consumer_id\030\001 \001(\t\022\023\n\013producer_id\030\002 \001("
+  "\t\022\037\n\004kind\030\003 \001(\0162\021.server.MediaKind\022\017\n\007su"
+  "ccess\030\004 \001(\010\022\024\n\014error_detail\030\005 \001(\t\"\233\001\n\016Wo"
+  "rkerRegister\022\021\n\tworker_id\030\001 \001(\t\022\021\n\tpubli"
+  "c_ip\030\002 \001(\t\022\023\n\013public_port\030\003 \001(\r\022\017\n\007use_u"
+  "dp\030\004 \001(\010\022\024\n\014router_count\030\005 \001(\r\022\021\n\tcpu_us"
+  "age\030\006 \001(\r\022\024\n\014memory_usage\030\007 \001(\r\"c\n\017Worke"
+  "rKeepalive\022\021\n\tworker_id\030\001 \001(\t\022\024\n\014router_"
+  "count\030\002 \001(\r\022\021\n\tcpu_usage\030\003 \001(\r\022\024\n\014memory"
+  "_usage\030\004 \001(\r\"R\n\026WorkerRegisterResponse\022\021"
+  "\n\tworker_id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024\n\014er"
+  "ror_detail\030\003 \001(\t\"*\n\027WorkerKeepaliveRespo"
+  "nse\022\017\n\007success\030\001 \001(\010\"\311\003\n\016WorkerToServer\022"
+  "\016\n\006seq_id\030\001 \001(\004\0229\n\021create_router_res\030\002 \001"
+  "(\0132\034.server.CreateRouterResponseH\000\022\?\n\024cr"
+  "eate_transport_res\030\003 \001(\0132\037.server.Create"
+  "TransportResponseH\000\022A\n\025connect_transport"
+  "_res\030\004 \001(\0132 .server.ConnectTransportResp"
+  "onseH\000\022.\n\013produce_res\030\005 \001(\0132\027.server.Pro"
+  "duceResponseH\000\022/\n\014consumer_res\030\006 \001(\0132\027.s"
+  "erver.ConsumeResponseH\000\0221\n\017worker_regist"
+  "er\030\007 \001(\0132\026.server.WorkerRegisterH\000\0223\n\020wo"
+  "rker_keepalive\030\010 \001(\0132\027.server.WorkerKeep"
+  "aliveH\000\022\024\n\nstats_push\030\t \001(\tH\000B\t\n\007payload"
+  "\"\345\003\n\016ServerToWorker\022\016\n\006seq_id\030\001 \001(\004\0228\n\021c"
+  "reate_router_req\030\002 \001(\0132\033.server.CreateRo"
+  "uterRequestH\000\022>\n\024create_transport_req\030\003 "
+  "\001(\0132\036.server.CreateTransportRequestH\000\022@\n"
+  "\025connect_transport_req\030\004 \001(\0132\037.server.Co"
+  "nnectTransportRequestH\000\022-\n\013produce_req\030\005"
+  " \001(\0132\026.server.ProduceRequestH\000\022.\n\014consum"
+  "er_req\030\006 \001(\0132\026.server.ConsumeRequestH\000\022\035"
+  "\n\023global_notification\030\007 \001(\tH\000\022=\n\023worker_"
+  "register_res\030\010 \001(\0132\036.server.WorkerRegist"
+  "erResponseH\000\022\?\n\024worker_keepalive_res\030\t \001"
+  "(\0132\037.server.WorkerKeepaliveResponseH\000B\t\n"
+  "\007payload*d\n\022TransportDirection\022\022\n\016DIRECT"
+  "ION_AUTO\020\000\022\022\n\016DIRECTION_SEND\020\001\022\022\n\016DIRECT"
+  "ION_RECV\020\002\022\022\n\016DIRECTION_BOTH\020\003*7\n\tMediaK"
+  "ind\022\024\n\020MEDIA_KIND_AUDIO\020\000\022\024\n\020MEDIA_KIND_"
+  "VIDEO\020\0012K\n\rWebRtcService\022:\n\004Sync\022\026.serve"
+  "r.WorkerToServer\032\026.server.ServerToWorker"
+  "(\0010\001B\tZ\007./protob\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_singal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_singal_2eproto = {
-    false, false, 4431, descriptor_table_protodef_singal_2eproto,
+    false, false, 4463, descriptor_table_protodef_singal_2eproto,
     "singal.proto",
     &descriptor_table_singal_2eproto_once, nullptr, 0, 28,
     schemas, file_default_instances, TableStruct_singal_2eproto::offsets,
@@ -7267,6 +7272,7 @@ ProduceRequest::ProduceRequest(const ProduceRequest& from)
     , decltype(_impl_.producer_id_){}
     , decltype(_impl_.kind_){}
     , decltype(_impl_.app_data_){}
+    , decltype(_impl_.method_){}
     , decltype(_impl_.rtpparameters_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -7311,6 +7317,14 @@ ProduceRequest::ProduceRequest(const ProduceRequest& from)
     _this->_impl_.app_data_.Set(from._internal_app_data(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.method_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.method_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_method().empty()) {
+    _this->_impl_.method_.Set(from._internal_method(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_rtpparameters()) {
     _this->_impl_.rtpparameters_ = new ::server::RtpParameters(*from._impl_.rtpparameters_);
   }
@@ -7327,6 +7341,7 @@ inline void ProduceRequest::SharedCtor(
     , decltype(_impl_.producer_id_){}
     , decltype(_impl_.kind_){}
     , decltype(_impl_.app_data_){}
+    , decltype(_impl_.method_){}
     , decltype(_impl_.rtpparameters_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -7350,6 +7365,10 @@ inline void ProduceRequest::SharedCtor(
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.app_data_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.method_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.method_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ProduceRequest::~ProduceRequest() {
@@ -7368,6 +7387,7 @@ inline void ProduceRequest::SharedDtor() {
   _impl_.producer_id_.Destroy();
   _impl_.kind_.Destroy();
   _impl_.app_data_.Destroy();
+  _impl_.method_.Destroy();
   if (this != internal_default_instance()) delete _impl_.rtpparameters_;
 }
 
@@ -7386,6 +7406,7 @@ void ProduceRequest::Clear() {
   _impl_.producer_id_.ClearToEmpty();
   _impl_.kind_.ClearToEmpty();
   _impl_.app_data_.ClearToEmpty();
+  _impl_.method_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.rtpparameters_ != nullptr) {
     delete _impl_.rtpparameters_;
   }
@@ -7449,9 +7470,19 @@ const char* ProduceRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // .server.RtpParameters rtpParameters = 6;
+      // string method = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          auto str = _internal_mutable_method();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "server.ProduceRequest.method"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .server.RtpParameters rtpParameters = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_rtpparameters(), ptr);
           CHK_(ptr);
         } else
@@ -7536,10 +7567,20 @@ uint8_t* ProduceRequest::_InternalSerialize(
         5, this->_internal_app_data(), target);
   }
 
-  // .server.RtpParameters rtpParameters = 6;
+  // string method = 6;
+  if (!this->_internal_method().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_method().data(), static_cast<int>(this->_internal_method().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "server.ProduceRequest.method");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_method(), target);
+  }
+
+  // .server.RtpParameters rtpParameters = 7;
   if (this->_internal_has_rtpparameters()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(6, _Internal::rtpparameters(this),
+      InternalWriteMessage(7, _Internal::rtpparameters(this),
         _Internal::rtpparameters(this).GetCachedSize(), target, stream);
   }
 
@@ -7594,7 +7635,14 @@ size_t ProduceRequest::ByteSizeLong() const {
         this->_internal_app_data());
   }
 
-  // .server.RtpParameters rtpParameters = 6;
+  // string method = 6;
+  if (!this->_internal_method().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_method());
+  }
+
+  // .server.RtpParameters rtpParameters = 7;
   if (this->_internal_has_rtpparameters()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -7633,6 +7681,9 @@ void ProduceRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   }
   if (!from._internal_app_data().empty()) {
     _this->_internal_set_app_data(from._internal_app_data());
+  }
+  if (!from._internal_method().empty()) {
+    _this->_internal_set_method(from._internal_method());
   }
   if (from._internal_has_rtpparameters()) {
     _this->_internal_mutable_rtpparameters()->::server::RtpParameters::MergeFrom(
@@ -7676,6 +7727,10 @@ void ProduceRequest::InternalSwap(ProduceRequest* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.app_data_, lhs_arena,
       &other->_impl_.app_data_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.method_, lhs_arena,
+      &other->_impl_.method_, rhs_arena
   );
   swap(_impl_.rtpparameters_, other->_impl_.rtpparameters_);
 }
@@ -7993,6 +8048,7 @@ ConsumeRequest::ConsumeRequest(const ConsumeRequest& from)
     , decltype(_impl_.consumer_id_){}
     , decltype(_impl_.kind_){}
     , decltype(_impl_.app_data_){}
+    , decltype(_impl_.method_){}
     , decltype(_impl_.rtpparameters_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -8045,6 +8101,14 @@ ConsumeRequest::ConsumeRequest(const ConsumeRequest& from)
     _this->_impl_.app_data_.Set(from._internal_app_data(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.method_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.method_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_method().empty()) {
+    _this->_impl_.method_.Set(from._internal_method(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_rtpparameters()) {
     _this->_impl_.rtpparameters_ = new ::server::RtpParameters(*from._impl_.rtpparameters_);
   }
@@ -8062,6 +8126,7 @@ inline void ConsumeRequest::SharedCtor(
     , decltype(_impl_.consumer_id_){}
     , decltype(_impl_.kind_){}
     , decltype(_impl_.app_data_){}
+    , decltype(_impl_.method_){}
     , decltype(_impl_.rtpparameters_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -8089,6 +8154,10 @@ inline void ConsumeRequest::SharedCtor(
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.app_data_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.method_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.method_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ConsumeRequest::~ConsumeRequest() {
@@ -8108,6 +8177,7 @@ inline void ConsumeRequest::SharedDtor() {
   _impl_.consumer_id_.Destroy();
   _impl_.kind_.Destroy();
   _impl_.app_data_.Destroy();
+  _impl_.method_.Destroy();
   if (this != internal_default_instance()) delete _impl_.rtpparameters_;
 }
 
@@ -8127,6 +8197,7 @@ void ConsumeRequest::Clear() {
   _impl_.consumer_id_.ClearToEmpty();
   _impl_.kind_.ClearToEmpty();
   _impl_.app_data_.ClearToEmpty();
+  _impl_.method_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.rtpparameters_ != nullptr) {
     delete _impl_.rtpparameters_;
   }
@@ -8200,9 +8271,19 @@ const char* ConsumeRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // .server.RtpParameters rtpParameters = 7;
+      // string method = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_method();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "server.ConsumeRequest.method"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .server.RtpParameters rtpParameters = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_rtpparameters(), ptr);
           CHK_(ptr);
         } else
@@ -8297,10 +8378,20 @@ uint8_t* ConsumeRequest::_InternalSerialize(
         6, this->_internal_app_data(), target);
   }
 
-  // .server.RtpParameters rtpParameters = 7;
+  // string method = 7;
+  if (!this->_internal_method().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_method().data(), static_cast<int>(this->_internal_method().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "server.ConsumeRequest.method");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_method(), target);
+  }
+
+  // .server.RtpParameters rtpParameters = 8;
   if (this->_internal_has_rtpparameters()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, _Internal::rtpparameters(this),
+      InternalWriteMessage(8, _Internal::rtpparameters(this),
         _Internal::rtpparameters(this).GetCachedSize(), target, stream);
   }
 
@@ -8362,7 +8453,14 @@ size_t ConsumeRequest::ByteSizeLong() const {
         this->_internal_app_data());
   }
 
-  // .server.RtpParameters rtpParameters = 7;
+  // string method = 7;
+  if (!this->_internal_method().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_method());
+  }
+
+  // .server.RtpParameters rtpParameters = 8;
   if (this->_internal_has_rtpparameters()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -8404,6 +8502,9 @@ void ConsumeRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   }
   if (!from._internal_app_data().empty()) {
     _this->_internal_set_app_data(from._internal_app_data());
+  }
+  if (!from._internal_method().empty()) {
+    _this->_internal_set_method(from._internal_method());
   }
   if (from._internal_has_rtpparameters()) {
     _this->_internal_mutable_rtpparameters()->::server::RtpParameters::MergeFrom(
@@ -8451,6 +8552,10 @@ void ConsumeRequest::InternalSwap(ConsumeRequest* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.app_data_, lhs_arena,
       &other->_impl_.app_data_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.method_, lhs_arena,
+      &other->_impl_.method_, rhs_arena
   );
   swap(_impl_.rtpparameters_, other->_impl_.rtpparameters_);
 }

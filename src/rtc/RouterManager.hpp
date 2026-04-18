@@ -29,9 +29,12 @@ public:
                               const std::string& producerId,
                               const std::string& kind,
                               const server::RtpParameters& rtp_params);
-
-    void closeTransportProducer(const std::string& transportId);
     
+    void closeTransportProducer(const std::string& routerId,
+                                const std::string& transportId,
+                                const std::string& producerId,
+                                const std::string& kind);
+
     void addTransportConsumer(const std::string& routerId,
                               const std::string& transportId,
                               const std::string& producerId,
@@ -39,7 +42,11 @@ public:
                               const std::string& kind,
                               const server::RtpParameters& rtp_params);
                             
-    void closeTransportConsumer(const std::string& transportId);
+    void closeTransportConsumer(const std::string& routerId,
+                              const std::string& transportId,
+                              const std::string& producerId,
+                              const std::string& consumerId,
+                              const std::string& kind);
 
 private:
     WebRtcServer* _webRtcServer{nullptr};

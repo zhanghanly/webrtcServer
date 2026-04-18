@@ -81,8 +81,7 @@ namespace RTC
 	{
 		MS_TRACE();
 
-		this->shared->channelMessageRegistrator->UnregisterHandler(this->id);
-
+		//this->shared->channelMessageRegistrator->UnregisterHandler(this->id);
 		delete this->rtpStream;
 		this->targetLayerRetransmissionBuffer.clear();
 	}

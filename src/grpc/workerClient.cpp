@@ -369,6 +369,7 @@ server::ProduceResponse WorkerClient::HandleProduce(const server::ProduceRequest
             req.producer_id(),
             req.kind(),
             req.app_data(),
+            req.method(),
             req.rtpparameters());
     }
     
@@ -389,6 +390,7 @@ server::ConsumeResponse WorkerClient::HandleConsume(const server::ConsumeRequest
             req.consumer_id(),
             req.kind(),
             req.app_data(),
+            req.method(),
             req.rtpparameters());
     }
     

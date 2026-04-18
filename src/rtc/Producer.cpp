@@ -253,9 +253,7 @@ namespace RTC
 	Producer::~Producer()
 	{
 		MS_TRACE();
-
-		this->shared->channelMessageRegistrator->UnregisterHandler(this->id);
-
+		//this->shared->channelMessageRegistrator->UnregisterHandler(this->id);
 		// Delete all streams.
 		for (auto& kv : this->mapSsrcRtpStream)
 		{

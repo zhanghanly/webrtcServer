@@ -28,12 +28,10 @@ int main(int argc, char* argv[]) {
    
     Config::instance().parse();
     RTC::RouterManager manager; 
-    // 创建Worker客户端
     std::string server_address = Config::instance().ServerConf().addr();
     std::string worker_id = Config::instance().WorkerConf().workerId;
     worker::WorkerClient client(server_address, worker_id);
     
-    // 注册请求处理器
     client.SetCreateRouterHandler([&worker_id, &manager](const std::string& req_worker_id,
                                                          const std::string& room_id,
                                                          const std::string& serverId,
@@ -76,11 +74,18 @@ int main(int argc, char* argv[]) {
                                const std::string& producer_id,
                                const std::string& kind,
                                const std::string& app_data,
+                               const std::string& method,
                                const server::RtpParameters& rtp_params) {
         std::cout << "[ProduceHandler] Transport: " << transport_id 
-                  << ", Kind: " << kind << std::endl;
+                  << ", Kind: " << kind
+                  << ", method: " << method << std::endl;
+        if (method == "create") {
+            manager.addTransportProducer(router_id, transport_id, producer_id, kind, rtp_params);
         
-        manager.addTransportProducer(router_id, transport_id, producer_id, kind, rtp_params);
+        } else if (method == "close") {
+            manager.closeTransportProducer(router_id, transport_id, producer_id, kind);
+        }
+        
         return worker::ResponseBuilder::BuildProduceResponse(producer_id, true);
     });
     
@@ -91,12 +96,20 @@ int main(int argc, char* argv[]) {
                                const std::string& consumer_id,
                                const std::string& kind,
                                const std::string& app_data,
+                               const std::string& method,
                                const server::RtpParameters& rtp_params) {
         std::cout << "[ConsumeHandler] Transport: " << transport_id 
                   << ", Producer: " << producer_id 
                   << ", Consumer: " << consumer_id
-                  << ", kind: " << kind << std::endl;
-        manager.addTransportConsumer(router_id, transport_id, producer_id, consumer_id, kind, rtp_params);
+                  << ", kind: " << kind 
+                  << ", method: " << method << std::endl;
+        if (method == "create") {
+            manager.addTransportConsumer(router_id, transport_id, producer_id, consumer_id, kind, rtp_params);
+        
+        } else if (method == "close") {
+            manager.closeTransportConsumer(router_id, transport_id, producer_id, consumer_id, kind);
+        }
+        
         return worker::ResponseBuilder::BuildConsumeResponse(
             consumer_id, producer_id, server::MEDIA_KIND_VIDEO, true);
     });

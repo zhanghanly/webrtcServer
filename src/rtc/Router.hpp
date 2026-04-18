@@ -110,9 +110,13 @@ namespace RTC
 		void connectTransport(const std::string& transportId, const std::string& role, const server::DtlsFingerprint&);
 		void addProducer(const std::string& transport_id, const std::string& producer_id,
                          const std::string& kind, const server::RtpParameters& rtp_params);
+		void closeProducer(const std::string& transport_id, const std::string& producer_id,
+                           const std::string& kind);
         void addConsumer(const std::string& transportId, const std::string& producerId,
                          const std::string& consumerId, const std::string& kind,
                          const server::RtpParameters& rtp_params);
+        void closeConsumer(const std::string& transportId, const std::string& producerId,
+                           const std::string& consumerId, const std::string& kind);
 
 	public:
 		// Passed by argument.

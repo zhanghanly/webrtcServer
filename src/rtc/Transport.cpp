@@ -683,6 +683,31 @@ namespace RTC
 		}
 	}
 		
+	void Transport::closeProducer(const std::string& producerId, const std::string& kind) {
+		// This may throw.
+		RTC::Producer* producer = GetProducerById(producerId);
+		// Remove it from the RtpListener.
+		this->rtpListener.RemoveProducer(producer);
+		// Remove it from the map.
+		this->mapProducers.erase(producer->id);
+
+		// Tell the child class to clear associated SSRCs.
+		for (const auto& kv : producer->GetRtpStreams()) {
+			auto* rtpStream = kv.first;
+
+			RecvStreamClosed(rtpStream->GetSsrc());
+			if (rtpStream->HasRtx()) {
+				RecvStreamClosed(rtpStream->GetRtxSsrc());
+			}
+		}
+
+		// Notify the listener.
+		this->listener->OnTransportProducerClosed(this, producer);
+		std::cout << "Producer closed [producerId:]" << producer->id << std::endl;
+		// Delete it.
+		delete producer;
+	}
+
 	void Transport::addConsumer(const std::string& producerId, const std::string& consumerId,
 			                    const std::string& kind, const server::RtpParameters& rtp_params) {
 		//const auto* body = request->data->body_as<FBS::Transport::ConsumeRequest>();
@@ -742,6 +767,7 @@ namespace RTC
 
 		// Insert into the maps.
 		this->mapConsumers[consumerId] = consumer;
+		std::cout << "add transport id=" << id << " consumer id=" << consumerId << std::endl;
 
 		for (auto ssrc : consumer->GetMediaSsrcs())
 		{
@@ -924,6 +950,31 @@ namespace RTC
 		{
 			consumer->TransportConnected();
 		}
+	}
+		
+	void Transport::closeConsumer(const std::string& producerId, const std::string& consumerId,
+			                      const std::string& kind) {
+									// This may throw.
+		RTC::Consumer* consumer = GetConsumerById(consumerId);
+		// Remove it from the maps.
+		this->mapConsumers.erase(consumer->id);
+		for (auto ssrc : consumer->GetMediaSsrcs()) {
+			this->mapSsrcConsumer.erase(ssrc);
+			// Tell the child class to clear associated SSRCs.
+			SendStreamClosed(ssrc);
+		}
+		for (auto ssrc : consumer->GetRtxSsrcs()) {
+			this->mapRtxSsrcConsumer.erase(ssrc);
+			// Tell the child class to clear associated SSRCs.
+			SendStreamClosed(ssrc);
+		}
+
+		// Notify the listener.
+		this->listener->OnTransportConsumerClosed(this, consumer);
+		std::cout << "Consumer closed [consumerId:" << consumer->id << "]" << std::endl;
+
+		// Delete it.
+		delete consumer;
 	}
 
 	void Transport::HandleRequest(Channel::ChannelRequest* request)
@@ -2120,6 +2171,7 @@ namespace RTC
 
 		if (it == this->mapConsumers.end())
 		{
+			std::cout << "can not found transport id=" << id << " consumer id=" << consumerId << std::endl;
 			MS_THROW_ERROR("Consumer not found");
 		}
 

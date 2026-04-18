@@ -80,9 +80,13 @@ void RouterManager::addTransportProducer(const std::string& routerId,
     }
 }
 
-void RouterManager::closeTransportProducer(const std::string& transportId) {
-
-
+void RouterManager::closeTransportProducer(const std::string& routerId,
+                                           const std::string& transportId,
+                                           const std::string& producerId,
+                                           const std::string& kind) {
+    if (_routers.find(routerId) != _routers.end()) {
+        _routers[routerId]->closeProducer(transportId, producerId, kind);
+    }
 }
 
 void RouterManager::addTransportConsumer(const std::string& routerId,
@@ -95,8 +99,15 @@ void RouterManager::addTransportConsumer(const std::string& routerId,
         _routers[routerId]->addConsumer(transportId, producerId, consumerId, kind, rtp_params);
     }
 }
-
-void RouterManager::closeTransportConsumer(const std::string& transportId) {
+    
+void RouterManager::closeTransportConsumer(const std::string& routerId,
+                                           const std::string& transportId,
+                                           const std::string& producerId,
+                                           const std::string& consumerId,
+                                           const std::string& kind) {
+    if (_routers.find(routerId) != _routers.end()) {
+        _routers[routerId]->closeConsumer(transportId, producerId, consumerId, kind);
+    }
 }
 
 }

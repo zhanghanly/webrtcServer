@@ -124,6 +124,7 @@ namespace RTC
 	{
 		MS_TRACE();
 		this->mid = data.mid();
+		std::cout << "mid=" << this->mid << std::endl;
 		this->codecs.reserve(data.codecs_size());
 		for (const auto& codec : data.codecs()) {
 			// This may throw due the constructor of RTC::RtpCodecParameters.

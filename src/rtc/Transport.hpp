@@ -166,10 +166,13 @@ namespace RTC
 		/* Methods inherited from Channel::ChannelSocket::RequestHandler. */
 	public:
 		void HandleRequest(Channel::ChannelRequest* request) override;
-		void addProducer(const std::string& producerId,const std::string& kind, 
+		void addProducer(const std::string& producerId, const std::string& kind, 
 			             const server::RtpParameters& rtp_params);
+		void closeProducer(const std::string& producerId, const std::string& kind); 
 		void addConsumer(const std::string& producerId, const std::string& consumerId,
 			             const std::string& kind, const server::RtpParameters& rtp_params);
+		void closeConsumer(const std::string& producerId, const std::string& consumerId,
+			               const std::string& kind);
 
 		/* Methods inherited from Channel::ChannelSocket::NotificationHandler. */
 	public:
