@@ -42,7 +42,7 @@ void RouterManager::createRouter(const std::string& routerId,
 }
 
 void RouterManager::removeRouter(const std::string& routerId) {
-
+    _routers.erase(routerId);
 }
 
 server::CreateTransportResponse RouterManager::createTransport(const std::string& routerId, 

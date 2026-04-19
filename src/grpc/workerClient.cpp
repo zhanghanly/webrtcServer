@@ -82,8 +82,8 @@ bool WorkerClient::IsConnected() const {
     return running_ && stream_ != nullptr;
 }
 
-void WorkerClient::SetCreateRouterHandler(CreateRouterHandler handler) {
-    create_router_handler_ = std::move(handler);
+void WorkerClient::SetRouterHandler(RouterHandler handler) {
+    router_handler_ = std::move(handler);
 }
 
 void WorkerClient::SetCreateTransportHandler(CreateTransportHandler handler) {
@@ -288,19 +288,20 @@ server::WorkerToServer WorkerClient::BuildResponse(uint64_t seq_id) {
     return response;
 }
 
-server::CreateRouterResponse WorkerClient::HandleCreateRouter(const server::CreateRouterRequest& req) {
+server::RouterResponse WorkerClient::HandleCreateRouter(const server::RouterRequest& req) {
     std::cout << "Handling CreateRouter request. Room: " << req.room_id() 
               << ", ServerId: " << req.serverid() << std::endl;
     
-    if (create_router_handler_) {
-        return create_router_handler_(
+    if (router_handler_) {
+        return router_handler_(
             req.worker_id(),
             req.room_id(),
             req.serverid(),
+            req.method(),
             req.info());
     }
     
-    return ResponseBuilder::BuildCreateRouterResponse(
+    return ResponseBuilder::BuildRouterResponse(
         "router-" + req.room_id() + "-" + std::to_string(std::rand()),
         true);
 }
@@ -407,12 +408,12 @@ void WorkerClient::QueueResponse(uint64_t seq_id, const server::WorkerToServer& 
     response_cv_.notify_one();
 }
 
-server::CreateRouterResponse ResponseBuilder::BuildCreateRouterResponse(
+server::RouterResponse ResponseBuilder::BuildRouterResponse(
     const std::string& router_id,
     bool success,
     const std::string& error_detail) {
     
-    server::CreateRouterResponse response;
+    server::RouterResponse response;
     response.set_router_id(router_id);
     response.set_success(success);
     if (!error_detail.empty()) {

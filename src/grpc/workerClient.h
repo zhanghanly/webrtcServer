@@ -17,10 +17,11 @@
 
 namespace worker {
 
-using CreateRouterHandler = std::function<server::CreateRouterResponse(
+using RouterHandler = std::function<server::RouterResponse(
     const std::string& worker_id,
     const std::string& room_id,
     const std::string& serverId,
+    const std::string& method,
     const server::ListenInfo& info)>;
 
 using CreateTransportHandler = std::function<server::CreateTransportResponse(
@@ -70,7 +71,7 @@ public:
     void Disconnect();
     bool IsConnected() const;
 
-    void SetCreateRouterHandler(CreateRouterHandler handler);
+    void SetRouterHandler(RouterHandler handler);
     void SetCreateTransportHandler(CreateTransportHandler handler);
     void SetConnectTransportHandler(ConnectTransportHandler handler);
     void SetProduceHandler(ProduceHandler handler);
@@ -97,7 +98,7 @@ private:
     std::thread read_thread_;
     std::thread write_thread_;
     
-    CreateRouterHandler create_router_handler_;
+    RouterHandler router_handler_;
     CreateTransportHandler create_transport_handler_;
     ConnectTransportHandler connect_transport_handler_;
     ProduceHandler produce_handler_;
@@ -121,7 +122,7 @@ private:
     
     server::WorkerToServer BuildResponse(uint64_t seq_id);
     
-    server::CreateRouterResponse HandleCreateRouter(const server::CreateRouterRequest& req);
+    server::RouterResponse HandleCreateRouter(const server::RouterRequest& req);
     server::CreateTransportResponse HandleCreateTransport(const server::CreateTransportRequest& req);
     server::ConnectTransportResponse HandleConnectTransport(const server::ConnectTransportRequest& req);
     server::ProduceResponse HandleProduce(const server::ProduceRequest& req);
@@ -132,7 +133,7 @@ private:
 
 class ResponseBuilder {
 public:
-    static server::CreateRouterResponse BuildCreateRouterResponse(
+    static server::RouterResponse BuildRouterResponse(
         const std::string& router_id,
         bool success = true,
         const std::string& error_detail = "");

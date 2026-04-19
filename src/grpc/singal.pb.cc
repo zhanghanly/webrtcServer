@@ -44,37 +44,38 @@ struct ListenInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListenInfoDefaultTypeInternal _ListenInfo_default_instance_;
-PROTOBUF_CONSTEXPR CreateRouterRequest::CreateRouterRequest(
+PROTOBUF_CONSTEXPR RouterRequest::RouterRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.worker_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.room_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.serverid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.method_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.info_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct CreateRouterRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CreateRouterRequestDefaultTypeInternal()
+struct RouterRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RouterRequestDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CreateRouterRequestDefaultTypeInternal() {}
+  ~RouterRequestDefaultTypeInternal() {}
   union {
-    CreateRouterRequest _instance;
+    RouterRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateRouterRequestDefaultTypeInternal _CreateRouterRequest_default_instance_;
-PROTOBUF_CONSTEXPR CreateRouterResponse::CreateRouterResponse(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RouterRequestDefaultTypeInternal _RouterRequest_default_instance_;
+PROTOBUF_CONSTEXPR RouterResponse::RouterResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.router_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.error_detail_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.success_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct CreateRouterResponseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CreateRouterResponseDefaultTypeInternal()
+struct RouterResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RouterResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CreateRouterResponseDefaultTypeInternal() {}
+  ~RouterResponseDefaultTypeInternal() {}
   union {
-    CreateRouterResponse _instance;
+    RouterResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateRouterResponseDefaultTypeInternal _CreateRouterResponse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RouterResponseDefaultTypeInternal _RouterResponse_default_instance_;
 PROTOBUF_CONSTEXPR DtlsFingerprint::DtlsFingerprint(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.algorithm_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -513,24 +514,25 @@ const uint32_t TableStruct_singal_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
   PROTOBUF_FIELD_OFFSET(::server::ListenInfo, _impl_.recv_buffer_size_),
   PROTOBUF_FIELD_OFFSET(::server::ListenInfo, _impl_.send_buffer_size_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterRequest, _impl_.worker_id_),
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterRequest, _impl_.room_id_),
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterRequest, _impl_.serverid_),
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterRequest, _impl_.info_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterRequest, _impl_.worker_id_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterRequest, _impl_.room_id_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterRequest, _impl_.serverid_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterRequest, _impl_.method_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterRequest, _impl_.info_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterResponse, _impl_.router_id_),
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterResponse, _impl_.success_),
-  PROTOBUF_FIELD_OFFSET(::server::CreateRouterResponse, _impl_.error_detail_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterResponse, _impl_.router_id_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterResponse, _impl_.success_),
+  PROTOBUF_FIELD_OFFSET(::server::RouterResponse, _impl_.error_detail_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::server::DtlsFingerprint, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -812,39 +814,39 @@ const uint32_t TableStruct_singal_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::server::ListenInfo)},
-  { 17, -1, -1, sizeof(::server::CreateRouterRequest)},
-  { 27, -1, -1, sizeof(::server::CreateRouterResponse)},
-  { 36, -1, -1, sizeof(::server::DtlsFingerprint)},
-  { 44, -1, -1, sizeof(::server::IceCandidate)},
-  { 57, -1, -1, sizeof(::server::CreateTransportRequest)},
-  { 71, -1, -1, sizeof(::server::CreateTransportResponse)},
-  { 85, -1, -1, sizeof(::server::ConnectTransportRequest)},
-  { 96, -1, -1, sizeof(::server::ConnectTransportResponse)},
-  { 105, -1, -1, sizeof(::server::Rtcp)},
-  { 113, -1, -1, sizeof(::server::RtcpFeedback)},
-  { 121, -1, -1, sizeof(::server::Codec)},
-  { 133, -1, -1, sizeof(::server::HeadExtension)},
-  { 143, -1, -1, sizeof(::server::Encoding)},
-  { 158, -1, -1, sizeof(::server::PayloadMap)},
-  { 166, -1, -1, sizeof(::server::EncodingMap)},
-  { 175, -1, -1, sizeof(::server::RtpMapping)},
-  { 183, -1, -1, sizeof(::server::RtpParameters)},
-  { 196, -1, -1, sizeof(::server::ProduceRequest)},
-  { 209, -1, -1, sizeof(::server::ProduceResponse)},
-  { 218, -1, -1, sizeof(::server::ConsumeRequest)},
-  { 232, -1, -1, sizeof(::server::ConsumeResponse)},
-  { 243, -1, -1, sizeof(::server::WorkerRegister)},
-  { 256, -1, -1, sizeof(::server::WorkerKeepalive)},
-  { 266, -1, -1, sizeof(::server::WorkerRegisterResponse)},
-  { 275, -1, -1, sizeof(::server::WorkerKeepaliveResponse)},
-  { 282, -1, -1, sizeof(::server::WorkerToServer)},
-  { 298, -1, -1, sizeof(::server::ServerToWorker)},
+  { 17, -1, -1, sizeof(::server::RouterRequest)},
+  { 28, -1, -1, sizeof(::server::RouterResponse)},
+  { 37, -1, -1, sizeof(::server::DtlsFingerprint)},
+  { 45, -1, -1, sizeof(::server::IceCandidate)},
+  { 58, -1, -1, sizeof(::server::CreateTransportRequest)},
+  { 72, -1, -1, sizeof(::server::CreateTransportResponse)},
+  { 86, -1, -1, sizeof(::server::ConnectTransportRequest)},
+  { 97, -1, -1, sizeof(::server::ConnectTransportResponse)},
+  { 106, -1, -1, sizeof(::server::Rtcp)},
+  { 114, -1, -1, sizeof(::server::RtcpFeedback)},
+  { 122, -1, -1, sizeof(::server::Codec)},
+  { 134, -1, -1, sizeof(::server::HeadExtension)},
+  { 144, -1, -1, sizeof(::server::Encoding)},
+  { 159, -1, -1, sizeof(::server::PayloadMap)},
+  { 167, -1, -1, sizeof(::server::EncodingMap)},
+  { 176, -1, -1, sizeof(::server::RtpMapping)},
+  { 184, -1, -1, sizeof(::server::RtpParameters)},
+  { 197, -1, -1, sizeof(::server::ProduceRequest)},
+  { 210, -1, -1, sizeof(::server::ProduceResponse)},
+  { 219, -1, -1, sizeof(::server::ConsumeRequest)},
+  { 233, -1, -1, sizeof(::server::ConsumeResponse)},
+  { 244, -1, -1, sizeof(::server::WorkerRegister)},
+  { 257, -1, -1, sizeof(::server::WorkerKeepalive)},
+  { 267, -1, -1, sizeof(::server::WorkerRegisterResponse)},
+  { 276, -1, -1, sizeof(::server::WorkerKeepaliveResponse)},
+  { 283, -1, -1, sizeof(::server::WorkerToServer)},
+  { 299, -1, -1, sizeof(::server::ServerToWorker)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::server::_ListenInfo_default_instance_._instance,
-  &::server::_CreateRouterRequest_default_instance_._instance,
-  &::server::_CreateRouterResponse_default_instance_._instance,
+  &::server::_RouterRequest_default_instance_._instance,
+  &::server::_RouterResponse_default_instance_._instance,
   &::server::_DtlsFingerprint_default_instance_._instance,
   &::server::_IceCandidate_default_instance_._instance,
   &::server::_CreateTransportRequest_default_instance_._instance,
@@ -879,116 +881,116 @@ const char descriptor_table_protodef_singal_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "d_ip\030\005 \001(\t\022\026\n\016announced_port\030\006 \001(\r\022\013\n\003tc"
   "p\030\007 \001(\010\022\020\n\010ipv6Only\030\010 \001(\010\022\024\n\014udpReusePor"
   "t\030\t \001(\010\022\030\n\020recv_buffer_size\030\n \001(\r\022\030\n\020sen"
-  "d_buffer_size\030\013 \001(\r\"m\n\023CreateRouterReque"
-  "st\022\021\n\tworker_id\030\001 \001(\t\022\017\n\007room_id\030\002 \001(\t\022\020"
-  "\n\010serverId\030\003 \001(\t\022 \n\004info\030\004 \001(\0132\022.server."
-  "ListenInfo\"P\n\024CreateRouterResponse\022\021\n\tro"
-  "uter_id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024\n\014error_"
-  "detail\030\003 \001(\t\"3\n\017DtlsFingerprint\022\021\n\talgor"
-  "ithm\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\200\001\n\014IceCandida"
-  "te\022\022\n\nfoundation\030\001 \001(\t\022\020\n\010priority\030\002 \001(\r"
-  "\022\n\n\002ip\030\003 \001(\t\022\020\n\010protocol\030\004 \001(\t\022\014\n\004port\030\005"
-  " \001(\r\022\014\n\004type\030\006 \001(\t\022\020\n\010tcp_type\030\007 \001(\t\"\323\001\n"
-  "\026CreateTransportRequest\022\021\n\tworker_id\030\001 \001"
-  "(\t\022\021\n\trouter_id\030\002 \001(\t\022\024\n\014transport_id\030\003 "
-  "\001(\t\022-\n\tdirection\030\004 \001(\0162\032.server.Transpor"
-  "tDirection\022\022\n\nenable_udp\030\005 \001(\010\022\022\n\nenable"
-  "_tcp\030\006 \001(\010\022\022\n\nprefer_udp\030\007 \001(\010\022\022\n\nprefer"
-  "_tcp\030\010 \001(\010\"\357\001\n\027CreateTransportResponse\022\024"
-  "\n\014transport_id\030\001 \001(\t\022\021\n\tice_ufrag\030\002 \001(\t\022"
-  "\017\n\007ice_pwd\030\003 \001(\t\022,\n\016ice_candidates\030\004 \003(\013"
-  "2\024.server.IceCandidate\0222\n\021dtls_fingerpri"
-  "nts\030\005 \003(\0132\027.server.DtlsFingerprint\022\021\n\tdt"
-  "ls_role\030\006 \001(\t\022\017\n\007success\030\007 \001(\010\022\024\n\014error_"
-  "detail\030\010 \001(\t\"\234\001\n\027ConnectTransportRequest"
-  "\022\021\n\tworker_id\030\001 \001(\t\022\021\n\trouter_id\030\002 \001(\t\022\024"
-  "\n\014transport_id\030\003 \001(\t\022\021\n\tdtls_role\030\004 \001(\t\022"
-  "2\n\021dtls_fingerprints\030\005 \003(\0132\027.server.Dtls"
-  "Fingerprint\"W\n\030ConnectTransportResponse\022"
-  "\024\n\014transport_id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024"
-  "\n\014error_detail\030\003 \001(\t\"*\n\004Rtcp\022\r\n\005cname\030\001 "
-  "\001(\t\022\023\n\013reducedSize\030\002 \001(\010\"/\n\014RtcpFeedback"
-  "\022\014\n\004type\030\001 \001(\t\022\021\n\tparameter\030\002 \001(\t\"\224\001\n\005Co"
-  "dec\022\020\n\010mimeType\030\001 \001(\t\022\023\n\013payloadType\030\002 \001"
-  "(\r\022\021\n\tclockRate\030\003 \001(\r\022\020\n\010channels\030\004 \001(\r\022"
-  "\022\n\nparameters\030\005 \001(\t\022+\n\rrtcpFeedbacks\030\006 \003"
-  "(\0132\024.server.RtcpFeedback\"M\n\rHeadExtensio"
-  "n\022\013\n\003uri\030\001 \001(\t\022\n\n\002id\030\002 \001(\r\022\017\n\007encrypt\030\003 "
-  "\001(\010\022\022\n\nparameters\030\004 \001(\t\"\257\001\n\010Encoding\022\016\n\006"
-  "active\030\001 \001(\010\022\027\n\017scalabilityMode\030\002 \001(\t\022\035\n"
-  "\025scaleResolutionDownBy\030\003 \001(\r\022\022\n\nmaxBitra"
-  "te\030\004 \001(\r\022\013\n\003rid\030\005 \001(\t\022\013\n\003dtx\030\006 \001(\010\022\014\n\004ss"
-  "rc\030\007 \001(\r\022\016\n\006hasRtx\030\010 \001(\010\022\017\n\007rtxSsrc\030\t \001("
-  "\r\"<\n\nPayloadMap\022\023\n\013payloadType\030\001 \001(\r\022\031\n\021"
-  "mappedPayloadType\030\002 \001(\r\"<\n\013EncodingMap\022\013"
-  "\n\003rid\030\001 \001(\t\022\014\n\004ssrc\030\002 \001(\r\022\022\n\nmappedSsrc\030"
-  "\003 \001(\r\"^\n\nRtpMapping\022&\n\nPayloadMap\030\001 \003(\0132"
-  "\022.server.PayloadMap\022(\n\013encodingMap\030\002 \003(\013"
-  "2\023.server.EncodingMap\"\341\001\n\rRtpParameters\022"
-  "\013\n\003mid\030\001 \001(\t\022\014\n\004msid\030\002 \001(\t\022\032\n\004rtcp\030\003 \001(\013"
-  "2\014.server.Rtcp\022\035\n\006codecs\030\004 \003(\0132\r.server."
-  "Codec\022-\n\016headExtensions\030\005 \003(\0132\025.server.H"
-  "eadExtension\022#\n\tencodings\030\006 \003(\0132\020.server"
-  ".Encoding\022&\n\nrtpMapping\030\007 \001(\0132\022.server.R"
-  "tpMapping\"\254\001\n\016ProduceRequest\022\021\n\trouter_i"
-  "d\030\001 \001(\t\022\024\n\014transport_id\030\002 \001(\t\022\023\n\013produce"
-  "r_id\030\003 \001(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010app_data\030\005 \001"
-  "(\t\022\016\n\006method\030\006 \001(\t\022,\n\rrtpParameters\030\007 \001("
-  "\0132\025.server.RtpParameters\"M\n\017ProduceRespo"
-  "nse\022\023\n\013producer_id\030\001 \001(\t\022\017\n\007success\030\002 \001("
-  "\010\022\024\n\014error_detail\030\003 \001(\t\"\301\001\n\016ConsumeReque"
-  "st\022\021\n\trouter_id\030\001 \001(\t\022\024\n\014transport_id\030\002 "
-  "\001(\t\022\023\n\013producer_id\030\003 \001(\t\022\023\n\013consumer_id\030"
-  "\004 \001(\t\022\014\n\004kind\030\005 \001(\t\022\020\n\010app_data\030\006 \001(\t\022\016\n"
-  "\006method\030\007 \001(\t\022,\n\rrtpParameters\030\010 \001(\0132\025.s"
-  "erver.RtpParameters\"\203\001\n\017ConsumeResponse\022"
-  "\023\n\013consumer_id\030\001 \001(\t\022\023\n\013producer_id\030\002 \001("
-  "\t\022\037\n\004kind\030\003 \001(\0162\021.server.MediaKind\022\017\n\007su"
-  "ccess\030\004 \001(\010\022\024\n\014error_detail\030\005 \001(\t\"\233\001\n\016Wo"
-  "rkerRegister\022\021\n\tworker_id\030\001 \001(\t\022\021\n\tpubli"
-  "c_ip\030\002 \001(\t\022\023\n\013public_port\030\003 \001(\r\022\017\n\007use_u"
-  "dp\030\004 \001(\010\022\024\n\014router_count\030\005 \001(\r\022\021\n\tcpu_us"
-  "age\030\006 \001(\r\022\024\n\014memory_usage\030\007 \001(\r\"c\n\017Worke"
-  "rKeepalive\022\021\n\tworker_id\030\001 \001(\t\022\024\n\014router_"
-  "count\030\002 \001(\r\022\021\n\tcpu_usage\030\003 \001(\r\022\024\n\014memory"
-  "_usage\030\004 \001(\r\"R\n\026WorkerRegisterResponse\022\021"
-  "\n\tworker_id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024\n\014er"
-  "ror_detail\030\003 \001(\t\"*\n\027WorkerKeepaliveRespo"
-  "nse\022\017\n\007success\030\001 \001(\010\"\311\003\n\016WorkerToServer\022"
-  "\016\n\006seq_id\030\001 \001(\004\0229\n\021create_router_res\030\002 \001"
-  "(\0132\034.server.CreateRouterResponseH\000\022\?\n\024cr"
-  "eate_transport_res\030\003 \001(\0132\037.server.Create"
-  "TransportResponseH\000\022A\n\025connect_transport"
-  "_res\030\004 \001(\0132 .server.ConnectTransportResp"
-  "onseH\000\022.\n\013produce_res\030\005 \001(\0132\027.server.Pro"
-  "duceResponseH\000\022/\n\014consumer_res\030\006 \001(\0132\027.s"
-  "erver.ConsumeResponseH\000\0221\n\017worker_regist"
-  "er\030\007 \001(\0132\026.server.WorkerRegisterH\000\0223\n\020wo"
-  "rker_keepalive\030\010 \001(\0132\027.server.WorkerKeep"
-  "aliveH\000\022\024\n\nstats_push\030\t \001(\tH\000B\t\n\007payload"
-  "\"\345\003\n\016ServerToWorker\022\016\n\006seq_id\030\001 \001(\004\0228\n\021c"
-  "reate_router_req\030\002 \001(\0132\033.server.CreateRo"
-  "uterRequestH\000\022>\n\024create_transport_req\030\003 "
-  "\001(\0132\036.server.CreateTransportRequestH\000\022@\n"
-  "\025connect_transport_req\030\004 \001(\0132\037.server.Co"
-  "nnectTransportRequestH\000\022-\n\013produce_req\030\005"
-  " \001(\0132\026.server.ProduceRequestH\000\022.\n\014consum"
-  "er_req\030\006 \001(\0132\026.server.ConsumeRequestH\000\022\035"
-  "\n\023global_notification\030\007 \001(\tH\000\022=\n\023worker_"
-  "register_res\030\010 \001(\0132\036.server.WorkerRegist"
-  "erResponseH\000\022\?\n\024worker_keepalive_res\030\t \001"
-  "(\0132\037.server.WorkerKeepaliveResponseH\000B\t\n"
-  "\007payload*d\n\022TransportDirection\022\022\n\016DIRECT"
-  "ION_AUTO\020\000\022\022\n\016DIRECTION_SEND\020\001\022\022\n\016DIRECT"
-  "ION_RECV\020\002\022\022\n\016DIRECTION_BOTH\020\003*7\n\tMediaK"
-  "ind\022\024\n\020MEDIA_KIND_AUDIO\020\000\022\024\n\020MEDIA_KIND_"
-  "VIDEO\020\0012K\n\rWebRtcService\022:\n\004Sync\022\026.serve"
-  "r.WorkerToServer\032\026.server.ServerToWorker"
-  "(\0010\001B\tZ\007./protob\006proto3"
+  "d_buffer_size\030\013 \001(\r\"w\n\rRouterRequest\022\021\n\t"
+  "worker_id\030\001 \001(\t\022\017\n\007room_id\030\002 \001(\t\022\020\n\010serv"
+  "erId\030\003 \001(\t\022\016\n\006method\030\004 \001(\t\022 \n\004info\030\005 \001(\013"
+  "2\022.server.ListenInfo\"J\n\016RouterResponse\022\021"
+  "\n\trouter_id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024\n\014er"
+  "ror_detail\030\003 \001(\t\"3\n\017DtlsFingerprint\022\021\n\ta"
+  "lgorithm\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\200\001\n\014IceCan"
+  "didate\022\022\n\nfoundation\030\001 \001(\t\022\020\n\010priority\030\002"
+  " \001(\r\022\n\n\002ip\030\003 \001(\t\022\020\n\010protocol\030\004 \001(\t\022\014\n\004po"
+  "rt\030\005 \001(\r\022\014\n\004type\030\006 \001(\t\022\020\n\010tcp_type\030\007 \001(\t"
+  "\"\323\001\n\026CreateTransportRequest\022\021\n\tworker_id"
+  "\030\001 \001(\t\022\021\n\trouter_id\030\002 \001(\t\022\024\n\014transport_i"
+  "d\030\003 \001(\t\022-\n\tdirection\030\004 \001(\0162\032.server.Tran"
+  "sportDirection\022\022\n\nenable_udp\030\005 \001(\010\022\022\n\nen"
+  "able_tcp\030\006 \001(\010\022\022\n\nprefer_udp\030\007 \001(\010\022\022\n\npr"
+  "efer_tcp\030\010 \001(\010\"\357\001\n\027CreateTransportRespon"
+  "se\022\024\n\014transport_id\030\001 \001(\t\022\021\n\tice_ufrag\030\002 "
+  "\001(\t\022\017\n\007ice_pwd\030\003 \001(\t\022,\n\016ice_candidates\030\004"
+  " \003(\0132\024.server.IceCandidate\0222\n\021dtls_finge"
+  "rprints\030\005 \003(\0132\027.server.DtlsFingerprint\022\021"
+  "\n\tdtls_role\030\006 \001(\t\022\017\n\007success\030\007 \001(\010\022\024\n\014er"
+  "ror_detail\030\010 \001(\t\"\234\001\n\027ConnectTransportReq"
+  "uest\022\021\n\tworker_id\030\001 \001(\t\022\021\n\trouter_id\030\002 \001"
+  "(\t\022\024\n\014transport_id\030\003 \001(\t\022\021\n\tdtls_role\030\004 "
+  "\001(\t\0222\n\021dtls_fingerprints\030\005 \003(\0132\027.server."
+  "DtlsFingerprint\"W\n\030ConnectTransportRespo"
+  "nse\022\024\n\014transport_id\030\001 \001(\t\022\017\n\007success\030\002 \001"
+  "(\010\022\024\n\014error_detail\030\003 \001(\t\"*\n\004Rtcp\022\r\n\005cnam"
+  "e\030\001 \001(\t\022\023\n\013reducedSize\030\002 \001(\010\"/\n\014RtcpFeed"
+  "back\022\014\n\004type\030\001 \001(\t\022\021\n\tparameter\030\002 \001(\t\"\224\001"
+  "\n\005Codec\022\020\n\010mimeType\030\001 \001(\t\022\023\n\013payloadType"
+  "\030\002 \001(\r\022\021\n\tclockRate\030\003 \001(\r\022\020\n\010channels\030\004 "
+  "\001(\r\022\022\n\nparameters\030\005 \001(\t\022+\n\rrtcpFeedbacks"
+  "\030\006 \003(\0132\024.server.RtcpFeedback\"M\n\rHeadExte"
+  "nsion\022\013\n\003uri\030\001 \001(\t\022\n\n\002id\030\002 \001(\r\022\017\n\007encryp"
+  "t\030\003 \001(\010\022\022\n\nparameters\030\004 \001(\t\"\257\001\n\010Encoding"
+  "\022\016\n\006active\030\001 \001(\010\022\027\n\017scalabilityMode\030\002 \001("
+  "\t\022\035\n\025scaleResolutionDownBy\030\003 \001(\r\022\022\n\nmaxB"
+  "itrate\030\004 \001(\r\022\013\n\003rid\030\005 \001(\t\022\013\n\003dtx\030\006 \001(\010\022\014"
+  "\n\004ssrc\030\007 \001(\r\022\016\n\006hasRtx\030\010 \001(\010\022\017\n\007rtxSsrc\030"
+  "\t \001(\r\"<\n\nPayloadMap\022\023\n\013payloadType\030\001 \001(\r"
+  "\022\031\n\021mappedPayloadType\030\002 \001(\r\"<\n\013EncodingM"
+  "ap\022\013\n\003rid\030\001 \001(\t\022\014\n\004ssrc\030\002 \001(\r\022\022\n\nmappedS"
+  "src\030\003 \001(\r\"^\n\nRtpMapping\022&\n\nPayloadMap\030\001 "
+  "\003(\0132\022.server.PayloadMap\022(\n\013encodingMap\030\002"
+  " \003(\0132\023.server.EncodingMap\"\341\001\n\rRtpParamet"
+  "ers\022\013\n\003mid\030\001 \001(\t\022\014\n\004msid\030\002 \001(\t\022\032\n\004rtcp\030\003"
+  " \001(\0132\014.server.Rtcp\022\035\n\006codecs\030\004 \003(\0132\r.ser"
+  "ver.Codec\022-\n\016headExtensions\030\005 \003(\0132\025.serv"
+  "er.HeadExtension\022#\n\tencodings\030\006 \003(\0132\020.se"
+  "rver.Encoding\022&\n\nrtpMapping\030\007 \001(\0132\022.serv"
+  "er.RtpMapping\"\254\001\n\016ProduceRequest\022\021\n\trout"
+  "er_id\030\001 \001(\t\022\024\n\014transport_id\030\002 \001(\t\022\023\n\013pro"
+  "ducer_id\030\003 \001(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010app_data"
+  "\030\005 \001(\t\022\016\n\006method\030\006 \001(\t\022,\n\rrtpParameters\030"
+  "\007 \001(\0132\025.server.RtpParameters\"M\n\017ProduceR"
+  "esponse\022\023\n\013producer_id\030\001 \001(\t\022\017\n\007success\030"
+  "\002 \001(\010\022\024\n\014error_detail\030\003 \001(\t\"\301\001\n\016ConsumeR"
+  "equest\022\021\n\trouter_id\030\001 \001(\t\022\024\n\014transport_i"
+  "d\030\002 \001(\t\022\023\n\013producer_id\030\003 \001(\t\022\023\n\013consumer"
+  "_id\030\004 \001(\t\022\014\n\004kind\030\005 \001(\t\022\020\n\010app_data\030\006 \001("
+  "\t\022\016\n\006method\030\007 \001(\t\022,\n\rrtpParameters\030\010 \001(\013"
+  "2\025.server.RtpParameters\"\203\001\n\017ConsumeRespo"
+  "nse\022\023\n\013consumer_id\030\001 \001(\t\022\023\n\013producer_id\030"
+  "\002 \001(\t\022\037\n\004kind\030\003 \001(\0162\021.server.MediaKind\022\017"
+  "\n\007success\030\004 \001(\010\022\024\n\014error_detail\030\005 \001(\t\"\233\001"
+  "\n\016WorkerRegister\022\021\n\tworker_id\030\001 \001(\t\022\021\n\tp"
+  "ublic_ip\030\002 \001(\t\022\023\n\013public_port\030\003 \001(\r\022\017\n\007u"
+  "se_udp\030\004 \001(\010\022\024\n\014router_count\030\005 \001(\r\022\021\n\tcp"
+  "u_usage\030\006 \001(\r\022\024\n\014memory_usage\030\007 \001(\r\"c\n\017W"
+  "orkerKeepalive\022\021\n\tworker_id\030\001 \001(\t\022\024\n\014rou"
+  "ter_count\030\002 \001(\r\022\021\n\tcpu_usage\030\003 \001(\r\022\024\n\014me"
+  "mory_usage\030\004 \001(\r\"R\n\026WorkerRegisterRespon"
+  "se\022\021\n\tworker_id\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\024"
+  "\n\014error_detail\030\003 \001(\t\"*\n\027WorkerKeepaliveR"
+  "esponse\022\017\n\007success\030\001 \001(\010\"\303\003\n\016WorkerToSer"
+  "ver\022\016\n\006seq_id\030\001 \001(\004\0223\n\021create_router_res"
+  "\030\002 \001(\0132\026.server.RouterResponseH\000\022\?\n\024crea"
+  "te_transport_res\030\003 \001(\0132\037.server.CreateTr"
+  "ansportResponseH\000\022A\n\025connect_transport_r"
+  "es\030\004 \001(\0132 .server.ConnectTransportRespon"
+  "seH\000\022.\n\013produce_res\030\005 \001(\0132\027.server.Produ"
+  "ceResponseH\000\022/\n\014consumer_res\030\006 \001(\0132\027.ser"
+  "ver.ConsumeResponseH\000\0221\n\017worker_register"
+  "\030\007 \001(\0132\026.server.WorkerRegisterH\000\0223\n\020work"
+  "er_keepalive\030\010 \001(\0132\027.server.WorkerKeepal"
+  "iveH\000\022\024\n\nstats_push\030\t \001(\tH\000B\t\n\007payload\"\337"
+  "\003\n\016ServerToWorker\022\016\n\006seq_id\030\001 \001(\004\0222\n\021cre"
+  "ate_router_req\030\002 \001(\0132\025.server.RouterRequ"
+  "estH\000\022>\n\024create_transport_req\030\003 \001(\0132\036.se"
+  "rver.CreateTransportRequestH\000\022@\n\025connect"
+  "_transport_req\030\004 \001(\0132\037.server.ConnectTra"
+  "nsportRequestH\000\022-\n\013produce_req\030\005 \001(\0132\026.s"
+  "erver.ProduceRequestH\000\022.\n\014consumer_req\030\006"
+  " \001(\0132\026.server.ConsumeRequestH\000\022\035\n\023global"
+  "_notification\030\007 \001(\tH\000\022=\n\023worker_register"
+  "_res\030\010 \001(\0132\036.server.WorkerRegisterRespon"
+  "seH\000\022\?\n\024worker_keepalive_res\030\t \001(\0132\037.ser"
+  "ver.WorkerKeepaliveResponseH\000B\t\n\007payload"
+  "*d\n\022TransportDirection\022\022\n\016DIRECTION_AUTO"
+  "\020\000\022\022\n\016DIRECTION_SEND\020\001\022\022\n\016DIRECTION_RECV"
+  "\020\002\022\022\n\016DIRECTION_BOTH\020\003*7\n\tMediaKind\022\024\n\020M"
+  "EDIA_KIND_AUDIO\020\000\022\024\n\020MEDIA_KIND_VIDEO\020\0012"
+  "K\n\rWebRtcService\022:\n\004Sync\022\026.server.Worker"
+  "ToServer\032\026.server.ServerToWorker(\0010\001B\tZ\007"
+  "./protob\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_singal_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_singal_2eproto = {
-    false, false, 4463, descriptor_table_protodef_singal_2eproto,
+    false, false, 4455, descriptor_table_protodef_singal_2eproto,
     "singal.proto",
     &descriptor_table_singal_2eproto_once, nullptr, 0, 28,
     schemas, file_default_instances, TableStruct_singal_2eproto::offsets,
@@ -1568,28 +1570,29 @@ void ListenInfo::InternalSwap(ListenInfo* other) {
 
 // ===================================================================
 
-class CreateRouterRequest::_Internal {
+class RouterRequest::_Internal {
  public:
-  static const ::server::ListenInfo& info(const CreateRouterRequest* msg);
+  static const ::server::ListenInfo& info(const RouterRequest* msg);
 };
 
 const ::server::ListenInfo&
-CreateRouterRequest::_Internal::info(const CreateRouterRequest* msg) {
+RouterRequest::_Internal::info(const RouterRequest* msg) {
   return *msg->_impl_.info_;
 }
-CreateRouterRequest::CreateRouterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+RouterRequest::RouterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:server.CreateRouterRequest)
+  // @@protoc_insertion_point(arena_constructor:server.RouterRequest)
 }
-CreateRouterRequest::CreateRouterRequest(const CreateRouterRequest& from)
+RouterRequest::RouterRequest(const RouterRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CreateRouterRequest* const _this = this; (void)_this;
+  RouterRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.worker_id_){}
     , decltype(_impl_.room_id_){}
     , decltype(_impl_.serverid_){}
+    , decltype(_impl_.method_){}
     , decltype(_impl_.info_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -1618,13 +1621,21 @@ CreateRouterRequest::CreateRouterRequest(const CreateRouterRequest& from)
     _this->_impl_.serverid_.Set(from._internal_serverid(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.method_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.method_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_method().empty()) {
+    _this->_impl_.method_.Set(from._internal_method(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_info()) {
     _this->_impl_.info_ = new ::server::ListenInfo(*from._impl_.info_);
   }
-  // @@protoc_insertion_point(copy_constructor:server.CreateRouterRequest)
+  // @@protoc_insertion_point(copy_constructor:server.RouterRequest)
 }
 
-inline void CreateRouterRequest::SharedCtor(
+inline void RouterRequest::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -1632,6 +1643,7 @@ inline void CreateRouterRequest::SharedCtor(
       decltype(_impl_.worker_id_){}
     , decltype(_impl_.room_id_){}
     , decltype(_impl_.serverid_){}
+    , decltype(_impl_.method_){}
     , decltype(_impl_.info_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -1647,10 +1659,14 @@ inline void CreateRouterRequest::SharedCtor(
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.serverid_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.method_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.method_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-CreateRouterRequest::~CreateRouterRequest() {
-  // @@protoc_insertion_point(destructor:server.CreateRouterRequest)
+RouterRequest::~RouterRequest() {
+  // @@protoc_insertion_point(destructor:server.RouterRequest)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1658,20 +1674,21 @@ CreateRouterRequest::~CreateRouterRequest() {
   SharedDtor();
 }
 
-inline void CreateRouterRequest::SharedDtor() {
+inline void RouterRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.worker_id_.Destroy();
   _impl_.room_id_.Destroy();
   _impl_.serverid_.Destroy();
+  _impl_.method_.Destroy();
   if (this != internal_default_instance()) delete _impl_.info_;
 }
 
-void CreateRouterRequest::SetCachedSize(int size) const {
+void RouterRequest::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CreateRouterRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:server.CreateRouterRequest)
+void RouterRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:server.RouterRequest)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1679,6 +1696,7 @@ void CreateRouterRequest::Clear() {
   _impl_.worker_id_.ClearToEmpty();
   _impl_.room_id_.ClearToEmpty();
   _impl_.serverid_.ClearToEmpty();
+  _impl_.method_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.info_ != nullptr) {
     delete _impl_.info_;
   }
@@ -1686,7 +1704,7 @@ void CreateRouterRequest::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CreateRouterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* RouterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -1698,7 +1716,7 @@ const char* CreateRouterRequest::_InternalParse(const char* ptr, ::_pbi::ParseCo
           auto str = _internal_mutable_worker_id();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "server.CreateRouterRequest.worker_id"));
+          CHK_(::_pbi::VerifyUTF8(str, "server.RouterRequest.worker_id"));
         } else
           goto handle_unusual;
         continue;
@@ -1708,7 +1726,7 @@ const char* CreateRouterRequest::_InternalParse(const char* ptr, ::_pbi::ParseCo
           auto str = _internal_mutable_room_id();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "server.CreateRouterRequest.room_id"));
+          CHK_(::_pbi::VerifyUTF8(str, "server.RouterRequest.room_id"));
         } else
           goto handle_unusual;
         continue;
@@ -1718,13 +1736,23 @@ const char* CreateRouterRequest::_InternalParse(const char* ptr, ::_pbi::ParseCo
           auto str = _internal_mutable_serverid();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "server.CreateRouterRequest.serverId"));
+          CHK_(::_pbi::VerifyUTF8(str, "server.RouterRequest.serverId"));
         } else
           goto handle_unusual;
         continue;
-      // .server.ListenInfo info = 4;
+      // string method = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_method();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "server.RouterRequest.method"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .server.ListenInfo info = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_info(), ptr);
           CHK_(ptr);
         } else
@@ -1753,9 +1781,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CreateRouterRequest::_InternalSerialize(
+uint8_t* RouterRequest::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:server.CreateRouterRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:server.RouterRequest)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1764,7 +1792,7 @@ uint8_t* CreateRouterRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_worker_id().data(), static_cast<int>(this->_internal_worker_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "server.CreateRouterRequest.worker_id");
+      "server.RouterRequest.worker_id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_worker_id(), target);
   }
@@ -1774,7 +1802,7 @@ uint8_t* CreateRouterRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_room_id().data(), static_cast<int>(this->_internal_room_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "server.CreateRouterRequest.room_id");
+      "server.RouterRequest.room_id");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_room_id(), target);
   }
@@ -1784,15 +1812,25 @@ uint8_t* CreateRouterRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_serverid().data(), static_cast<int>(this->_internal_serverid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "server.CreateRouterRequest.serverId");
+      "server.RouterRequest.serverId");
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_serverid(), target);
   }
 
-  // .server.ListenInfo info = 4;
+  // string method = 4;
+  if (!this->_internal_method().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_method().data(), static_cast<int>(this->_internal_method().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "server.RouterRequest.method");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_method(), target);
+  }
+
+  // .server.ListenInfo info = 5;
   if (this->_internal_has_info()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, _Internal::info(this),
+      InternalWriteMessage(5, _Internal::info(this),
         _Internal::info(this).GetCachedSize(), target, stream);
   }
 
@@ -1800,12 +1838,12 @@ uint8_t* CreateRouterRequest::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:server.CreateRouterRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:server.RouterRequest)
   return target;
 }
 
-size_t CreateRouterRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:server.CreateRouterRequest)
+size_t RouterRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:server.RouterRequest)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1833,7 +1871,14 @@ size_t CreateRouterRequest::ByteSizeLong() const {
         this->_internal_serverid());
   }
 
-  // .server.ListenInfo info = 4;
+  // string method = 4;
+  if (!this->_internal_method().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_method());
+  }
+
+  // .server.ListenInfo info = 5;
   if (this->_internal_has_info()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1843,17 +1888,17 @@ size_t CreateRouterRequest::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CreateRouterRequest::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RouterRequest::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CreateRouterRequest::MergeImpl
+    RouterRequest::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CreateRouterRequest::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RouterRequest::GetClassData() const { return &_class_data_; }
 
 
-void CreateRouterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CreateRouterRequest*>(&to_msg);
-  auto& from = static_cast<const CreateRouterRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:server.CreateRouterRequest)
+void RouterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RouterRequest*>(&to_msg);
+  auto& from = static_cast<const RouterRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:server.RouterRequest)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1867,6 +1912,9 @@ void CreateRouterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   if (!from._internal_serverid().empty()) {
     _this->_internal_set_serverid(from._internal_serverid());
   }
+  if (!from._internal_method().empty()) {
+    _this->_internal_set_method(from._internal_method());
+  }
   if (from._internal_has_info()) {
     _this->_internal_mutable_info()->::server::ListenInfo::MergeFrom(
         from._internal_info());
@@ -1874,18 +1922,18 @@ void CreateRouterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CreateRouterRequest::CopyFrom(const CreateRouterRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:server.CreateRouterRequest)
+void RouterRequest::CopyFrom(const RouterRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:server.RouterRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CreateRouterRequest::IsInitialized() const {
+bool RouterRequest::IsInitialized() const {
   return true;
 }
 
-void CreateRouterRequest::InternalSwap(CreateRouterRequest* other) {
+void RouterRequest::InternalSwap(RouterRequest* other) {
   using std::swap;
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
@@ -1902,10 +1950,14 @@ void CreateRouterRequest::InternalSwap(CreateRouterRequest* other) {
       &_impl_.serverid_, lhs_arena,
       &other->_impl_.serverid_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.method_, lhs_arena,
+      &other->_impl_.method_, rhs_arena
+  );
   swap(_impl_.info_, other->_impl_.info_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CreateRouterRequest::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RouterRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_singal_2eproto_getter, &descriptor_table_singal_2eproto_once,
       file_level_metadata_singal_2eproto[1]);
@@ -1913,19 +1965,19 @@ void CreateRouterRequest::InternalSwap(CreateRouterRequest* other) {
 
 // ===================================================================
 
-class CreateRouterResponse::_Internal {
+class RouterResponse::_Internal {
  public:
 };
 
-CreateRouterResponse::CreateRouterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+RouterResponse::RouterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:server.CreateRouterResponse)
+  // @@protoc_insertion_point(arena_constructor:server.RouterResponse)
 }
-CreateRouterResponse::CreateRouterResponse(const CreateRouterResponse& from)
+RouterResponse::RouterResponse(const RouterResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CreateRouterResponse* const _this = this; (void)_this;
+  RouterResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.router_id_){}
     , decltype(_impl_.error_detail_){}
@@ -1950,10 +2002,10 @@ CreateRouterResponse::CreateRouterResponse(const CreateRouterResponse& from)
       _this->GetArenaForAllocation());
   }
   _this->_impl_.success_ = from._impl_.success_;
-  // @@protoc_insertion_point(copy_constructor:server.CreateRouterResponse)
+  // @@protoc_insertion_point(copy_constructor:server.RouterResponse)
 }
 
-inline void CreateRouterResponse::SharedCtor(
+inline void RouterResponse::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -1973,8 +2025,8 @@ inline void CreateRouterResponse::SharedCtor(
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-CreateRouterResponse::~CreateRouterResponse() {
-  // @@protoc_insertion_point(destructor:server.CreateRouterResponse)
+RouterResponse::~RouterResponse() {
+  // @@protoc_insertion_point(destructor:server.RouterResponse)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1982,18 +2034,18 @@ CreateRouterResponse::~CreateRouterResponse() {
   SharedDtor();
 }
 
-inline void CreateRouterResponse::SharedDtor() {
+inline void RouterResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.router_id_.Destroy();
   _impl_.error_detail_.Destroy();
 }
 
-void CreateRouterResponse::SetCachedSize(int size) const {
+void RouterResponse::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CreateRouterResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:server.CreateRouterResponse)
+void RouterResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:server.RouterResponse)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -2004,7 +2056,7 @@ void CreateRouterResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CreateRouterResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* RouterResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -2016,7 +2068,7 @@ const char* CreateRouterResponse::_InternalParse(const char* ptr, ::_pbi::ParseC
           auto str = _internal_mutable_router_id();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "server.CreateRouterResponse.router_id"));
+          CHK_(::_pbi::VerifyUTF8(str, "server.RouterResponse.router_id"));
         } else
           goto handle_unusual;
         continue;
@@ -2034,7 +2086,7 @@ const char* CreateRouterResponse::_InternalParse(const char* ptr, ::_pbi::ParseC
           auto str = _internal_mutable_error_detail();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "server.CreateRouterResponse.error_detail"));
+          CHK_(::_pbi::VerifyUTF8(str, "server.RouterResponse.error_detail"));
         } else
           goto handle_unusual;
         continue;
@@ -2061,9 +2113,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CreateRouterResponse::_InternalSerialize(
+uint8_t* RouterResponse::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:server.CreateRouterResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:server.RouterResponse)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2072,7 +2124,7 @@ uint8_t* CreateRouterResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_router_id().data(), static_cast<int>(this->_internal_router_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "server.CreateRouterResponse.router_id");
+      "server.RouterResponse.router_id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_router_id(), target);
   }
@@ -2088,7 +2140,7 @@ uint8_t* CreateRouterResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_error_detail().data(), static_cast<int>(this->_internal_error_detail().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "server.CreateRouterResponse.error_detail");
+      "server.RouterResponse.error_detail");
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_error_detail(), target);
   }
@@ -2097,12 +2149,12 @@ uint8_t* CreateRouterResponse::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:server.CreateRouterResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:server.RouterResponse)
   return target;
 }
 
-size_t CreateRouterResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:server.CreateRouterResponse)
+size_t RouterResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:server.RouterResponse)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -2131,17 +2183,17 @@ size_t CreateRouterResponse::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CreateRouterResponse::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RouterResponse::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CreateRouterResponse::MergeImpl
+    RouterResponse::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CreateRouterResponse::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RouterResponse::GetClassData() const { return &_class_data_; }
 
 
-void CreateRouterResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CreateRouterResponse*>(&to_msg);
-  auto& from = static_cast<const CreateRouterResponse&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:server.CreateRouterResponse)
+void RouterResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RouterResponse*>(&to_msg);
+  auto& from = static_cast<const RouterResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:server.RouterResponse)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2158,18 +2210,18 @@ void CreateRouterResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CreateRouterResponse::CopyFrom(const CreateRouterResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:server.CreateRouterResponse)
+void RouterResponse::CopyFrom(const RouterResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:server.RouterResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CreateRouterResponse::IsInitialized() const {
+bool RouterResponse::IsInitialized() const {
   return true;
 }
 
-void CreateRouterResponse::InternalSwap(CreateRouterResponse* other) {
+void RouterResponse::InternalSwap(RouterResponse* other) {
   using std::swap;
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
@@ -2185,7 +2237,7 @@ void CreateRouterResponse::InternalSwap(CreateRouterResponse* other) {
   swap(_impl_.success_, other->_impl_.success_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CreateRouterResponse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RouterResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_singal_2eproto_getter, &descriptor_table_singal_2eproto_once,
       file_level_metadata_singal_2eproto[2]);
@@ -10066,7 +10118,7 @@ void WorkerKeepaliveResponse::InternalSwap(WorkerKeepaliveResponse* other) {
 
 class WorkerToServer::_Internal {
  public:
-  static const ::server::CreateRouterResponse& create_router_res(const WorkerToServer* msg);
+  static const ::server::RouterResponse& create_router_res(const WorkerToServer* msg);
   static const ::server::CreateTransportResponse& create_transport_res(const WorkerToServer* msg);
   static const ::server::ConnectTransportResponse& connect_transport_res(const WorkerToServer* msg);
   static const ::server::ProduceResponse& produce_res(const WorkerToServer* msg);
@@ -10075,7 +10127,7 @@ class WorkerToServer::_Internal {
   static const ::server::WorkerKeepalive& worker_keepalive(const WorkerToServer* msg);
 };
 
-const ::server::CreateRouterResponse&
+const ::server::RouterResponse&
 WorkerToServer::_Internal::create_router_res(const WorkerToServer* msg) {
   return *msg->_impl_.payload_.create_router_res_;
 }
@@ -10103,7 +10155,7 @@ const ::server::WorkerKeepalive&
 WorkerToServer::_Internal::worker_keepalive(const WorkerToServer* msg) {
   return *msg->_impl_.payload_.worker_keepalive_;
 }
-void WorkerToServer::set_allocated_create_router_res(::server::CreateRouterResponse* create_router_res) {
+void WorkerToServer::set_allocated_create_router_res(::server::RouterResponse* create_router_res) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_payload();
   if (create_router_res) {
@@ -10228,7 +10280,7 @@ WorkerToServer::WorkerToServer(const WorkerToServer& from)
   clear_has_payload();
   switch (from.payload_case()) {
     case kCreateRouterRes: {
-      _this->_internal_mutable_create_router_res()->::server::CreateRouterResponse::MergeFrom(
+      _this->_internal_mutable_create_router_res()->::server::RouterResponse::MergeFrom(
           from._internal_create_router_res());
       break;
     }
@@ -10388,7 +10440,7 @@ const char* WorkerToServer::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // .server.CreateRouterResponse create_router_res = 2;
+      // .server.RouterResponse create_router_res = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_create_router_res(), ptr);
@@ -10489,7 +10541,7 @@ uint8_t* WorkerToServer::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_seq_id(), target);
   }
 
-  // .server.CreateRouterResponse create_router_res = 2;
+  // .server.RouterResponse create_router_res = 2;
   if (_internal_has_create_router_res()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::create_router_res(this),
@@ -10570,7 +10622,7 @@ size_t WorkerToServer::ByteSizeLong() const {
   }
 
   switch (payload_case()) {
-    // .server.CreateRouterResponse create_router_res = 2;
+    // .server.RouterResponse create_router_res = 2;
     case kCreateRouterRes: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -10653,7 +10705,7 @@ void WorkerToServer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   }
   switch (from.payload_case()) {
     case kCreateRouterRes: {
-      _this->_internal_mutable_create_router_res()->::server::CreateRouterResponse::MergeFrom(
+      _this->_internal_mutable_create_router_res()->::server::RouterResponse::MergeFrom(
           from._internal_create_router_res());
       break;
     }
@@ -10727,7 +10779,7 @@ void WorkerToServer::InternalSwap(WorkerToServer* other) {
 
 class ServerToWorker::_Internal {
  public:
-  static const ::server::CreateRouterRequest& create_router_req(const ServerToWorker* msg);
+  static const ::server::RouterRequest& create_router_req(const ServerToWorker* msg);
   static const ::server::CreateTransportRequest& create_transport_req(const ServerToWorker* msg);
   static const ::server::ConnectTransportRequest& connect_transport_req(const ServerToWorker* msg);
   static const ::server::ProduceRequest& produce_req(const ServerToWorker* msg);
@@ -10736,7 +10788,7 @@ class ServerToWorker::_Internal {
   static const ::server::WorkerKeepaliveResponse& worker_keepalive_res(const ServerToWorker* msg);
 };
 
-const ::server::CreateRouterRequest&
+const ::server::RouterRequest&
 ServerToWorker::_Internal::create_router_req(const ServerToWorker* msg) {
   return *msg->_impl_.payload_.create_router_req_;
 }
@@ -10764,7 +10816,7 @@ const ::server::WorkerKeepaliveResponse&
 ServerToWorker::_Internal::worker_keepalive_res(const ServerToWorker* msg) {
   return *msg->_impl_.payload_.worker_keepalive_res_;
 }
-void ServerToWorker::set_allocated_create_router_req(::server::CreateRouterRequest* create_router_req) {
+void ServerToWorker::set_allocated_create_router_req(::server::RouterRequest* create_router_req) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_payload();
   if (create_router_req) {
@@ -10889,7 +10941,7 @@ ServerToWorker::ServerToWorker(const ServerToWorker& from)
   clear_has_payload();
   switch (from.payload_case()) {
     case kCreateRouterReq: {
-      _this->_internal_mutable_create_router_req()->::server::CreateRouterRequest::MergeFrom(
+      _this->_internal_mutable_create_router_req()->::server::RouterRequest::MergeFrom(
           from._internal_create_router_req());
       break;
     }
@@ -11049,7 +11101,7 @@ const char* ServerToWorker::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // .server.CreateRouterRequest create_router_req = 2;
+      // .server.RouterRequest create_router_req = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_create_router_req(), ptr);
@@ -11150,7 +11202,7 @@ uint8_t* ServerToWorker::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_seq_id(), target);
   }
 
-  // .server.CreateRouterRequest create_router_req = 2;
+  // .server.RouterRequest create_router_req = 2;
   if (_internal_has_create_router_req()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(2, _Internal::create_router_req(this),
@@ -11231,7 +11283,7 @@ size_t ServerToWorker::ByteSizeLong() const {
   }
 
   switch (payload_case()) {
-    // .server.CreateRouterRequest create_router_req = 2;
+    // .server.RouterRequest create_router_req = 2;
     case kCreateRouterReq: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -11314,7 +11366,7 @@ void ServerToWorker::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   }
   switch (from.payload_case()) {
     case kCreateRouterReq: {
-      _this->_internal_mutable_create_router_req()->::server::CreateRouterRequest::MergeFrom(
+      _this->_internal_mutable_create_router_req()->::server::RouterRequest::MergeFrom(
           from._internal_create_router_req());
       break;
     }
@@ -11391,13 +11443,13 @@ template<> PROTOBUF_NOINLINE ::server::ListenInfo*
 Arena::CreateMaybeMessage< ::server::ListenInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::server::ListenInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::server::CreateRouterRequest*
-Arena::CreateMaybeMessage< ::server::CreateRouterRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::server::CreateRouterRequest >(arena);
+template<> PROTOBUF_NOINLINE ::server::RouterRequest*
+Arena::CreateMaybeMessage< ::server::RouterRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::server::RouterRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::server::CreateRouterResponse*
-Arena::CreateMaybeMessage< ::server::CreateRouterResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::server::CreateRouterResponse >(arena);
+template<> PROTOBUF_NOINLINE ::server::RouterResponse*
+Arena::CreateMaybeMessage< ::server::RouterResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::server::RouterResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::server::DtlsFingerprint*
 Arena::CreateMaybeMessage< ::server::DtlsFingerprint >(Arena* arena) {

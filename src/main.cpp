@@ -32,17 +32,23 @@ int main(int argc, char* argv[]) {
     std::string worker_id = Config::instance().WorkerConf().workerId;
     worker::WorkerClient client(server_address, worker_id);
     
-    client.SetCreateRouterHandler([&worker_id, &manager](const std::string& req_worker_id,
-                                                         const std::string& room_id,
+    client.SetRouterHandler([&worker_id, &manager](const std::string& req_worker_id,
+                                                         const std::string& router_id,
                                                          const std::string& serverId,
+                                                         const std::string& method,
                                                          const server::ListenInfo& info) {
-        std::cout << "[CreateRouterHandler] Worker: " << req_worker_id 
-                  << ", Room: " << room_id << std::endl;
+        std::cout << "[RouterHandler] Worker: " << req_worker_id 
+                  << ", Room: " << router_id 
+                  << ", Method: " << method << std::endl;
        
-        std::string router_id = room_id;
-        manager.createRouter(router_id, info);
+        if (method == "create") {
+            manager.createRouter(router_id, info);
         
-        return worker::ResponseBuilder::BuildCreateRouterResponse(router_id, true);
+        } else if (method == "close") {
+            manager.removeRouter(router_id);
+        }
+        
+        return worker::ResponseBuilder::BuildRouterResponse(router_id, true);
     });
     
     client.SetCreateTransportHandler([&worker_id, &manager](const std::string& req_worker_id,

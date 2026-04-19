@@ -61,12 +61,6 @@ extern ConsumeRequestDefaultTypeInternal _ConsumeRequest_default_instance_;
 class ConsumeResponse;
 struct ConsumeResponseDefaultTypeInternal;
 extern ConsumeResponseDefaultTypeInternal _ConsumeResponse_default_instance_;
-class CreateRouterRequest;
-struct CreateRouterRequestDefaultTypeInternal;
-extern CreateRouterRequestDefaultTypeInternal _CreateRouterRequest_default_instance_;
-class CreateRouterResponse;
-struct CreateRouterResponseDefaultTypeInternal;
-extern CreateRouterResponseDefaultTypeInternal _CreateRouterResponse_default_instance_;
 class CreateTransportRequest;
 struct CreateTransportRequestDefaultTypeInternal;
 extern CreateTransportRequestDefaultTypeInternal _CreateTransportRequest_default_instance_;
@@ -100,6 +94,12 @@ extern ProduceRequestDefaultTypeInternal _ProduceRequest_default_instance_;
 class ProduceResponse;
 struct ProduceResponseDefaultTypeInternal;
 extern ProduceResponseDefaultTypeInternal _ProduceResponse_default_instance_;
+class RouterRequest;
+struct RouterRequestDefaultTypeInternal;
+extern RouterRequestDefaultTypeInternal _RouterRequest_default_instance_;
+class RouterResponse;
+struct RouterResponseDefaultTypeInternal;
+extern RouterResponseDefaultTypeInternal _RouterResponse_default_instance_;
 class Rtcp;
 struct RtcpDefaultTypeInternal;
 extern RtcpDefaultTypeInternal _Rtcp_default_instance_;
@@ -137,8 +137,6 @@ template<> ::server::ConnectTransportRequest* Arena::CreateMaybeMessage<::server
 template<> ::server::ConnectTransportResponse* Arena::CreateMaybeMessage<::server::ConnectTransportResponse>(Arena*);
 template<> ::server::ConsumeRequest* Arena::CreateMaybeMessage<::server::ConsumeRequest>(Arena*);
 template<> ::server::ConsumeResponse* Arena::CreateMaybeMessage<::server::ConsumeResponse>(Arena*);
-template<> ::server::CreateRouterRequest* Arena::CreateMaybeMessage<::server::CreateRouterRequest>(Arena*);
-template<> ::server::CreateRouterResponse* Arena::CreateMaybeMessage<::server::CreateRouterResponse>(Arena*);
 template<> ::server::CreateTransportRequest* Arena::CreateMaybeMessage<::server::CreateTransportRequest>(Arena*);
 template<> ::server::CreateTransportResponse* Arena::CreateMaybeMessage<::server::CreateTransportResponse>(Arena*);
 template<> ::server::DtlsFingerprint* Arena::CreateMaybeMessage<::server::DtlsFingerprint>(Arena*);
@@ -150,6 +148,8 @@ template<> ::server::ListenInfo* Arena::CreateMaybeMessage<::server::ListenInfo>
 template<> ::server::PayloadMap* Arena::CreateMaybeMessage<::server::PayloadMap>(Arena*);
 template<> ::server::ProduceRequest* Arena::CreateMaybeMessage<::server::ProduceRequest>(Arena*);
 template<> ::server::ProduceResponse* Arena::CreateMaybeMessage<::server::ProduceResponse>(Arena*);
+template<> ::server::RouterRequest* Arena::CreateMaybeMessage<::server::RouterRequest>(Arena*);
+template<> ::server::RouterResponse* Arena::CreateMaybeMessage<::server::RouterResponse>(Arena*);
 template<> ::server::Rtcp* Arena::CreateMaybeMessage<::server::Rtcp>(Arena*);
 template<> ::server::RtcpFeedback* Arena::CreateMaybeMessage<::server::RtcpFeedback>(Arena*);
 template<> ::server::RtpMapping* Arena::CreateMaybeMessage<::server::RtpMapping>(Arena*);
@@ -495,24 +495,24 @@ class ListenInfo final :
 };
 // -------------------------------------------------------------------
 
-class CreateRouterRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:server.CreateRouterRequest) */ {
+class RouterRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:server.RouterRequest) */ {
  public:
-  inline CreateRouterRequest() : CreateRouterRequest(nullptr) {}
-  ~CreateRouterRequest() override;
-  explicit PROTOBUF_CONSTEXPR CreateRouterRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline RouterRequest() : RouterRequest(nullptr) {}
+  ~RouterRequest() override;
+  explicit PROTOBUF_CONSTEXPR RouterRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CreateRouterRequest(const CreateRouterRequest& from);
-  CreateRouterRequest(CreateRouterRequest&& from) noexcept
-    : CreateRouterRequest() {
+  RouterRequest(const RouterRequest& from);
+  RouterRequest(RouterRequest&& from) noexcept
+    : RouterRequest() {
     *this = ::std::move(from);
   }
 
-  inline CreateRouterRequest& operator=(const CreateRouterRequest& from) {
+  inline RouterRequest& operator=(const RouterRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CreateRouterRequest& operator=(CreateRouterRequest&& from) noexcept {
+  inline RouterRequest& operator=(RouterRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -535,20 +535,20 @@ class CreateRouterRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CreateRouterRequest& default_instance() {
+  static const RouterRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CreateRouterRequest* internal_default_instance() {
-    return reinterpret_cast<const CreateRouterRequest*>(
-               &_CreateRouterRequest_default_instance_);
+  static inline const RouterRequest* internal_default_instance() {
+    return reinterpret_cast<const RouterRequest*>(
+               &_RouterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(CreateRouterRequest& a, CreateRouterRequest& b) {
+  friend void swap(RouterRequest& a, RouterRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(CreateRouterRequest* other) {
+  inline void Swap(RouterRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -561,7 +561,7 @@ class CreateRouterRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CreateRouterRequest* other) {
+  void UnsafeArenaSwap(RouterRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -569,14 +569,14 @@ class CreateRouterRequest final :
 
   // implements Message ----------------------------------------------
 
-  CreateRouterRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CreateRouterRequest>(arena);
+  RouterRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RouterRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CreateRouterRequest& from);
+  void CopyFrom(const RouterRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CreateRouterRequest& from) {
-    CreateRouterRequest::MergeImpl(*this, from);
+  void MergeFrom( const RouterRequest& from) {
+    RouterRequest::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -594,15 +594,15 @@ class CreateRouterRequest final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CreateRouterRequest* other);
+  void InternalSwap(RouterRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "server.CreateRouterRequest";
+    return "server.RouterRequest";
   }
   protected:
-  explicit CreateRouterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit RouterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -619,7 +619,8 @@ class CreateRouterRequest final :
     kWorkerIdFieldNumber = 1,
     kRoomIdFieldNumber = 2,
     kServerIdFieldNumber = 3,
-    kInfoFieldNumber = 4,
+    kMethodFieldNumber = 4,
+    kInfoFieldNumber = 5,
   };
   // string worker_id = 1;
   void clear_worker_id();
@@ -663,7 +664,21 @@ class CreateRouterRequest final :
   std::string* _internal_mutable_serverid();
   public:
 
-  // .server.ListenInfo info = 4;
+  // string method = 4;
+  void clear_method();
+  const std::string& method() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_method(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_method();
+  PROTOBUF_NODISCARD std::string* release_method();
+  void set_allocated_method(std::string* method);
+  private:
+  const std::string& _internal_method() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_method(const std::string& value);
+  std::string* _internal_mutable_method();
+  public:
+
+  // .server.ListenInfo info = 5;
   bool has_info() const;
   private:
   bool _internal_has_info() const;
@@ -681,7 +696,7 @@ class CreateRouterRequest final :
       ::server::ListenInfo* info);
   ::server::ListenInfo* unsafe_arena_release_info();
 
-  // @@protoc_insertion_point(class_scope:server.CreateRouterRequest)
+  // @@protoc_insertion_point(class_scope:server.RouterRequest)
  private:
   class _Internal;
 
@@ -692,6 +707,7 @@ class CreateRouterRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr worker_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr room_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr serverid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr method_;
     ::server::ListenInfo* info_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -700,24 +716,24 @@ class CreateRouterRequest final :
 };
 // -------------------------------------------------------------------
 
-class CreateRouterResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:server.CreateRouterResponse) */ {
+class RouterResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:server.RouterResponse) */ {
  public:
-  inline CreateRouterResponse() : CreateRouterResponse(nullptr) {}
-  ~CreateRouterResponse() override;
-  explicit PROTOBUF_CONSTEXPR CreateRouterResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline RouterResponse() : RouterResponse(nullptr) {}
+  ~RouterResponse() override;
+  explicit PROTOBUF_CONSTEXPR RouterResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CreateRouterResponse(const CreateRouterResponse& from);
-  CreateRouterResponse(CreateRouterResponse&& from) noexcept
-    : CreateRouterResponse() {
+  RouterResponse(const RouterResponse& from);
+  RouterResponse(RouterResponse&& from) noexcept
+    : RouterResponse() {
     *this = ::std::move(from);
   }
 
-  inline CreateRouterResponse& operator=(const CreateRouterResponse& from) {
+  inline RouterResponse& operator=(const RouterResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CreateRouterResponse& operator=(CreateRouterResponse&& from) noexcept {
+  inline RouterResponse& operator=(RouterResponse&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -740,20 +756,20 @@ class CreateRouterResponse final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CreateRouterResponse& default_instance() {
+  static const RouterResponse& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CreateRouterResponse* internal_default_instance() {
-    return reinterpret_cast<const CreateRouterResponse*>(
-               &_CreateRouterResponse_default_instance_);
+  static inline const RouterResponse* internal_default_instance() {
+    return reinterpret_cast<const RouterResponse*>(
+               &_RouterResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(CreateRouterResponse& a, CreateRouterResponse& b) {
+  friend void swap(RouterResponse& a, RouterResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(CreateRouterResponse* other) {
+  inline void Swap(RouterResponse* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -766,7 +782,7 @@ class CreateRouterResponse final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CreateRouterResponse* other) {
+  void UnsafeArenaSwap(RouterResponse* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -774,14 +790,14 @@ class CreateRouterResponse final :
 
   // implements Message ----------------------------------------------
 
-  CreateRouterResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CreateRouterResponse>(arena);
+  RouterResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RouterResponse>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CreateRouterResponse& from);
+  void CopyFrom(const RouterResponse& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CreateRouterResponse& from) {
-    CreateRouterResponse::MergeImpl(*this, from);
+  void MergeFrom( const RouterResponse& from) {
+    RouterResponse::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -799,15 +815,15 @@ class CreateRouterResponse final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CreateRouterResponse* other);
+  void InternalSwap(RouterResponse* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "server.CreateRouterResponse";
+    return "server.RouterResponse";
   }
   protected:
-  explicit CreateRouterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit RouterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -862,7 +878,7 @@ class CreateRouterResponse final :
   void _internal_set_success(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:server.CreateRouterResponse)
+  // @@protoc_insertion_point(class_scope:server.RouterResponse)
  private:
   class _Internal;
 
@@ -5768,23 +5784,23 @@ class WorkerToServer final :
   void _internal_set_seq_id(uint64_t value);
   public:
 
-  // .server.CreateRouterResponse create_router_res = 2;
+  // .server.RouterResponse create_router_res = 2;
   bool has_create_router_res() const;
   private:
   bool _internal_has_create_router_res() const;
   public:
   void clear_create_router_res();
-  const ::server::CreateRouterResponse& create_router_res() const;
-  PROTOBUF_NODISCARD ::server::CreateRouterResponse* release_create_router_res();
-  ::server::CreateRouterResponse* mutable_create_router_res();
-  void set_allocated_create_router_res(::server::CreateRouterResponse* create_router_res);
+  const ::server::RouterResponse& create_router_res() const;
+  PROTOBUF_NODISCARD ::server::RouterResponse* release_create_router_res();
+  ::server::RouterResponse* mutable_create_router_res();
+  void set_allocated_create_router_res(::server::RouterResponse* create_router_res);
   private:
-  const ::server::CreateRouterResponse& _internal_create_router_res() const;
-  ::server::CreateRouterResponse* _internal_mutable_create_router_res();
+  const ::server::RouterResponse& _internal_create_router_res() const;
+  ::server::RouterResponse* _internal_mutable_create_router_res();
   public:
   void unsafe_arena_set_allocated_create_router_res(
-      ::server::CreateRouterResponse* create_router_res);
-  ::server::CreateRouterResponse* unsafe_arena_release_create_router_res();
+      ::server::RouterResponse* create_router_res);
+  ::server::RouterResponse* unsafe_arena_release_create_router_res();
 
   // .server.CreateTransportResponse create_transport_res = 3;
   bool has_create_transport_res() const;
@@ -5937,7 +5953,7 @@ class WorkerToServer final :
     union PayloadUnion {
       constexpr PayloadUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-      ::server::CreateRouterResponse* create_router_res_;
+      ::server::RouterResponse* create_router_res_;
       ::server::CreateTransportResponse* create_transport_res_;
       ::server::ConnectTransportResponse* connect_transport_res_;
       ::server::ProduceResponse* produce_res_;
@@ -6107,23 +6123,23 @@ class ServerToWorker final :
   void _internal_set_seq_id(uint64_t value);
   public:
 
-  // .server.CreateRouterRequest create_router_req = 2;
+  // .server.RouterRequest create_router_req = 2;
   bool has_create_router_req() const;
   private:
   bool _internal_has_create_router_req() const;
   public:
   void clear_create_router_req();
-  const ::server::CreateRouterRequest& create_router_req() const;
-  PROTOBUF_NODISCARD ::server::CreateRouterRequest* release_create_router_req();
-  ::server::CreateRouterRequest* mutable_create_router_req();
-  void set_allocated_create_router_req(::server::CreateRouterRequest* create_router_req);
+  const ::server::RouterRequest& create_router_req() const;
+  PROTOBUF_NODISCARD ::server::RouterRequest* release_create_router_req();
+  ::server::RouterRequest* mutable_create_router_req();
+  void set_allocated_create_router_req(::server::RouterRequest* create_router_req);
   private:
-  const ::server::CreateRouterRequest& _internal_create_router_req() const;
-  ::server::CreateRouterRequest* _internal_mutable_create_router_req();
+  const ::server::RouterRequest& _internal_create_router_req() const;
+  ::server::RouterRequest* _internal_mutable_create_router_req();
   public:
   void unsafe_arena_set_allocated_create_router_req(
-      ::server::CreateRouterRequest* create_router_req);
-  ::server::CreateRouterRequest* unsafe_arena_release_create_router_req();
+      ::server::RouterRequest* create_router_req);
+  ::server::RouterRequest* unsafe_arena_release_create_router_req();
 
   // .server.CreateTransportRequest create_transport_req = 3;
   bool has_create_transport_req() const;
@@ -6276,7 +6292,7 @@ class ServerToWorker final :
     union PayloadUnion {
       constexpr PayloadUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-      ::server::CreateRouterRequest* create_router_req_;
+      ::server::RouterRequest* create_router_req_;
       ::server::CreateTransportRequest* create_transport_req_;
       ::server::ConnectTransportRequest* connect_transport_req_;
       ::server::ProduceRequest* produce_req_;
@@ -6645,44 +6661,44 @@ inline void ListenInfo::set_send_buffer_size(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// CreateRouterRequest
+// RouterRequest
 
 // string worker_id = 1;
-inline void CreateRouterRequest::clear_worker_id() {
+inline void RouterRequest::clear_worker_id() {
   _impl_.worker_id_.ClearToEmpty();
 }
-inline const std::string& CreateRouterRequest::worker_id() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterRequest.worker_id)
+inline const std::string& RouterRequest::worker_id() const {
+  // @@protoc_insertion_point(field_get:server.RouterRequest.worker_id)
   return _internal_worker_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRouterRequest::set_worker_id(ArgT0&& arg0, ArgT... args) {
+void RouterRequest::set_worker_id(ArgT0&& arg0, ArgT... args) {
  
  _impl_.worker_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:server.CreateRouterRequest.worker_id)
+  // @@protoc_insertion_point(field_set:server.RouterRequest.worker_id)
 }
-inline std::string* CreateRouterRequest::mutable_worker_id() {
+inline std::string* RouterRequest::mutable_worker_id() {
   std::string* _s = _internal_mutable_worker_id();
-  // @@protoc_insertion_point(field_mutable:server.CreateRouterRequest.worker_id)
+  // @@protoc_insertion_point(field_mutable:server.RouterRequest.worker_id)
   return _s;
 }
-inline const std::string& CreateRouterRequest::_internal_worker_id() const {
+inline const std::string& RouterRequest::_internal_worker_id() const {
   return _impl_.worker_id_.Get();
 }
-inline void CreateRouterRequest::_internal_set_worker_id(const std::string& value) {
+inline void RouterRequest::_internal_set_worker_id(const std::string& value) {
   
   _impl_.worker_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRouterRequest::_internal_mutable_worker_id() {
+inline std::string* RouterRequest::_internal_mutable_worker_id() {
   
   return _impl_.worker_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRouterRequest::release_worker_id() {
-  // @@protoc_insertion_point(field_release:server.CreateRouterRequest.worker_id)
+inline std::string* RouterRequest::release_worker_id() {
+  // @@protoc_insertion_point(field_release:server.RouterRequest.worker_id)
   return _impl_.worker_id_.Release();
 }
-inline void CreateRouterRequest::set_allocated_worker_id(std::string* worker_id) {
+inline void RouterRequest::set_allocated_worker_id(std::string* worker_id) {
   if (worker_id != nullptr) {
     
   } else {
@@ -6694,45 +6710,45 @@ inline void CreateRouterRequest::set_allocated_worker_id(std::string* worker_id)
     _impl_.worker_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:server.CreateRouterRequest.worker_id)
+  // @@protoc_insertion_point(field_set_allocated:server.RouterRequest.worker_id)
 }
 
 // string room_id = 2;
-inline void CreateRouterRequest::clear_room_id() {
+inline void RouterRequest::clear_room_id() {
   _impl_.room_id_.ClearToEmpty();
 }
-inline const std::string& CreateRouterRequest::room_id() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterRequest.room_id)
+inline const std::string& RouterRequest::room_id() const {
+  // @@protoc_insertion_point(field_get:server.RouterRequest.room_id)
   return _internal_room_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRouterRequest::set_room_id(ArgT0&& arg0, ArgT... args) {
+void RouterRequest::set_room_id(ArgT0&& arg0, ArgT... args) {
  
  _impl_.room_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:server.CreateRouterRequest.room_id)
+  // @@protoc_insertion_point(field_set:server.RouterRequest.room_id)
 }
-inline std::string* CreateRouterRequest::mutable_room_id() {
+inline std::string* RouterRequest::mutable_room_id() {
   std::string* _s = _internal_mutable_room_id();
-  // @@protoc_insertion_point(field_mutable:server.CreateRouterRequest.room_id)
+  // @@protoc_insertion_point(field_mutable:server.RouterRequest.room_id)
   return _s;
 }
-inline const std::string& CreateRouterRequest::_internal_room_id() const {
+inline const std::string& RouterRequest::_internal_room_id() const {
   return _impl_.room_id_.Get();
 }
-inline void CreateRouterRequest::_internal_set_room_id(const std::string& value) {
+inline void RouterRequest::_internal_set_room_id(const std::string& value) {
   
   _impl_.room_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRouterRequest::_internal_mutable_room_id() {
+inline std::string* RouterRequest::_internal_mutable_room_id() {
   
   return _impl_.room_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRouterRequest::release_room_id() {
-  // @@protoc_insertion_point(field_release:server.CreateRouterRequest.room_id)
+inline std::string* RouterRequest::release_room_id() {
+  // @@protoc_insertion_point(field_release:server.RouterRequest.room_id)
   return _impl_.room_id_.Release();
 }
-inline void CreateRouterRequest::set_allocated_room_id(std::string* room_id) {
+inline void RouterRequest::set_allocated_room_id(std::string* room_id) {
   if (room_id != nullptr) {
     
   } else {
@@ -6744,45 +6760,45 @@ inline void CreateRouterRequest::set_allocated_room_id(std::string* room_id) {
     _impl_.room_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:server.CreateRouterRequest.room_id)
+  // @@protoc_insertion_point(field_set_allocated:server.RouterRequest.room_id)
 }
 
 // string serverId = 3;
-inline void CreateRouterRequest::clear_serverid() {
+inline void RouterRequest::clear_serverid() {
   _impl_.serverid_.ClearToEmpty();
 }
-inline const std::string& CreateRouterRequest::serverid() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterRequest.serverId)
+inline const std::string& RouterRequest::serverid() const {
+  // @@protoc_insertion_point(field_get:server.RouterRequest.serverId)
   return _internal_serverid();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRouterRequest::set_serverid(ArgT0&& arg0, ArgT... args) {
+void RouterRequest::set_serverid(ArgT0&& arg0, ArgT... args) {
  
  _impl_.serverid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:server.CreateRouterRequest.serverId)
+  // @@protoc_insertion_point(field_set:server.RouterRequest.serverId)
 }
-inline std::string* CreateRouterRequest::mutable_serverid() {
+inline std::string* RouterRequest::mutable_serverid() {
   std::string* _s = _internal_mutable_serverid();
-  // @@protoc_insertion_point(field_mutable:server.CreateRouterRequest.serverId)
+  // @@protoc_insertion_point(field_mutable:server.RouterRequest.serverId)
   return _s;
 }
-inline const std::string& CreateRouterRequest::_internal_serverid() const {
+inline const std::string& RouterRequest::_internal_serverid() const {
   return _impl_.serverid_.Get();
 }
-inline void CreateRouterRequest::_internal_set_serverid(const std::string& value) {
+inline void RouterRequest::_internal_set_serverid(const std::string& value) {
   
   _impl_.serverid_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRouterRequest::_internal_mutable_serverid() {
+inline std::string* RouterRequest::_internal_mutable_serverid() {
   
   return _impl_.serverid_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRouterRequest::release_serverid() {
-  // @@protoc_insertion_point(field_release:server.CreateRouterRequest.serverId)
+inline std::string* RouterRequest::release_serverid() {
+  // @@protoc_insertion_point(field_release:server.RouterRequest.serverId)
   return _impl_.serverid_.Release();
 }
-inline void CreateRouterRequest::set_allocated_serverid(std::string* serverid) {
+inline void RouterRequest::set_allocated_serverid(std::string* serverid) {
   if (serverid != nullptr) {
     
   } else {
@@ -6794,32 +6810,82 @@ inline void CreateRouterRequest::set_allocated_serverid(std::string* serverid) {
     _impl_.serverid_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:server.CreateRouterRequest.serverId)
+  // @@protoc_insertion_point(field_set_allocated:server.RouterRequest.serverId)
 }
 
-// .server.ListenInfo info = 4;
-inline bool CreateRouterRequest::_internal_has_info() const {
+// string method = 4;
+inline void RouterRequest::clear_method() {
+  _impl_.method_.ClearToEmpty();
+}
+inline const std::string& RouterRequest::method() const {
+  // @@protoc_insertion_point(field_get:server.RouterRequest.method)
+  return _internal_method();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RouterRequest::set_method(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.method_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:server.RouterRequest.method)
+}
+inline std::string* RouterRequest::mutable_method() {
+  std::string* _s = _internal_mutable_method();
+  // @@protoc_insertion_point(field_mutable:server.RouterRequest.method)
+  return _s;
+}
+inline const std::string& RouterRequest::_internal_method() const {
+  return _impl_.method_.Get();
+}
+inline void RouterRequest::_internal_set_method(const std::string& value) {
+  
+  _impl_.method_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RouterRequest::_internal_mutable_method() {
+  
+  return _impl_.method_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RouterRequest::release_method() {
+  // @@protoc_insertion_point(field_release:server.RouterRequest.method)
+  return _impl_.method_.Release();
+}
+inline void RouterRequest::set_allocated_method(std::string* method) {
+  if (method != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.method_.SetAllocated(method, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.method_.IsDefault()) {
+    _impl_.method_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:server.RouterRequest.method)
+}
+
+// .server.ListenInfo info = 5;
+inline bool RouterRequest::_internal_has_info() const {
   return this != internal_default_instance() && _impl_.info_ != nullptr;
 }
-inline bool CreateRouterRequest::has_info() const {
+inline bool RouterRequest::has_info() const {
   return _internal_has_info();
 }
-inline void CreateRouterRequest::clear_info() {
+inline void RouterRequest::clear_info() {
   if (GetArenaForAllocation() == nullptr && _impl_.info_ != nullptr) {
     delete _impl_.info_;
   }
   _impl_.info_ = nullptr;
 }
-inline const ::server::ListenInfo& CreateRouterRequest::_internal_info() const {
+inline const ::server::ListenInfo& RouterRequest::_internal_info() const {
   const ::server::ListenInfo* p = _impl_.info_;
   return p != nullptr ? *p : reinterpret_cast<const ::server::ListenInfo&>(
       ::server::_ListenInfo_default_instance_);
 }
-inline const ::server::ListenInfo& CreateRouterRequest::info() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterRequest.info)
+inline const ::server::ListenInfo& RouterRequest::info() const {
+  // @@protoc_insertion_point(field_get:server.RouterRequest.info)
   return _internal_info();
 }
-inline void CreateRouterRequest::unsafe_arena_set_allocated_info(
+inline void RouterRequest::unsafe_arena_set_allocated_info(
     ::server::ListenInfo* info) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.info_);
@@ -6830,9 +6896,9 @@ inline void CreateRouterRequest::unsafe_arena_set_allocated_info(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:server.CreateRouterRequest.info)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:server.RouterRequest.info)
 }
-inline ::server::ListenInfo* CreateRouterRequest::release_info() {
+inline ::server::ListenInfo* RouterRequest::release_info() {
   
   ::server::ListenInfo* temp = _impl_.info_;
   _impl_.info_ = nullptr;
@@ -6847,14 +6913,14 @@ inline ::server::ListenInfo* CreateRouterRequest::release_info() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::server::ListenInfo* CreateRouterRequest::unsafe_arena_release_info() {
-  // @@protoc_insertion_point(field_release:server.CreateRouterRequest.info)
+inline ::server::ListenInfo* RouterRequest::unsafe_arena_release_info() {
+  // @@protoc_insertion_point(field_release:server.RouterRequest.info)
   
   ::server::ListenInfo* temp = _impl_.info_;
   _impl_.info_ = nullptr;
   return temp;
 }
-inline ::server::ListenInfo* CreateRouterRequest::_internal_mutable_info() {
+inline ::server::ListenInfo* RouterRequest::_internal_mutable_info() {
   
   if (_impl_.info_ == nullptr) {
     auto* p = CreateMaybeMessage<::server::ListenInfo>(GetArenaForAllocation());
@@ -6862,12 +6928,12 @@ inline ::server::ListenInfo* CreateRouterRequest::_internal_mutable_info() {
   }
   return _impl_.info_;
 }
-inline ::server::ListenInfo* CreateRouterRequest::mutable_info() {
+inline ::server::ListenInfo* RouterRequest::mutable_info() {
   ::server::ListenInfo* _msg = _internal_mutable_info();
-  // @@protoc_insertion_point(field_mutable:server.CreateRouterRequest.info)
+  // @@protoc_insertion_point(field_mutable:server.RouterRequest.info)
   return _msg;
 }
-inline void CreateRouterRequest::set_allocated_info(::server::ListenInfo* info) {
+inline void RouterRequest::set_allocated_info(::server::ListenInfo* info) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.info_;
@@ -6884,49 +6950,49 @@ inline void CreateRouterRequest::set_allocated_info(::server::ListenInfo* info) 
     
   }
   _impl_.info_ = info;
-  // @@protoc_insertion_point(field_set_allocated:server.CreateRouterRequest.info)
+  // @@protoc_insertion_point(field_set_allocated:server.RouterRequest.info)
 }
 
 // -------------------------------------------------------------------
 
-// CreateRouterResponse
+// RouterResponse
 
 // string router_id = 1;
-inline void CreateRouterResponse::clear_router_id() {
+inline void RouterResponse::clear_router_id() {
   _impl_.router_id_.ClearToEmpty();
 }
-inline const std::string& CreateRouterResponse::router_id() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterResponse.router_id)
+inline const std::string& RouterResponse::router_id() const {
+  // @@protoc_insertion_point(field_get:server.RouterResponse.router_id)
   return _internal_router_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRouterResponse::set_router_id(ArgT0&& arg0, ArgT... args) {
+void RouterResponse::set_router_id(ArgT0&& arg0, ArgT... args) {
  
  _impl_.router_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:server.CreateRouterResponse.router_id)
+  // @@protoc_insertion_point(field_set:server.RouterResponse.router_id)
 }
-inline std::string* CreateRouterResponse::mutable_router_id() {
+inline std::string* RouterResponse::mutable_router_id() {
   std::string* _s = _internal_mutable_router_id();
-  // @@protoc_insertion_point(field_mutable:server.CreateRouterResponse.router_id)
+  // @@protoc_insertion_point(field_mutable:server.RouterResponse.router_id)
   return _s;
 }
-inline const std::string& CreateRouterResponse::_internal_router_id() const {
+inline const std::string& RouterResponse::_internal_router_id() const {
   return _impl_.router_id_.Get();
 }
-inline void CreateRouterResponse::_internal_set_router_id(const std::string& value) {
+inline void RouterResponse::_internal_set_router_id(const std::string& value) {
   
   _impl_.router_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRouterResponse::_internal_mutable_router_id() {
+inline std::string* RouterResponse::_internal_mutable_router_id() {
   
   return _impl_.router_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRouterResponse::release_router_id() {
-  // @@protoc_insertion_point(field_release:server.CreateRouterResponse.router_id)
+inline std::string* RouterResponse::release_router_id() {
+  // @@protoc_insertion_point(field_release:server.RouterResponse.router_id)
   return _impl_.router_id_.Release();
 }
-inline void CreateRouterResponse::set_allocated_router_id(std::string* router_id) {
+inline void RouterResponse::set_allocated_router_id(std::string* router_id) {
   if (router_id != nullptr) {
     
   } else {
@@ -6938,65 +7004,65 @@ inline void CreateRouterResponse::set_allocated_router_id(std::string* router_id
     _impl_.router_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:server.CreateRouterResponse.router_id)
+  // @@protoc_insertion_point(field_set_allocated:server.RouterResponse.router_id)
 }
 
 // bool success = 2;
-inline void CreateRouterResponse::clear_success() {
+inline void RouterResponse::clear_success() {
   _impl_.success_ = false;
 }
-inline bool CreateRouterResponse::_internal_success() const {
+inline bool RouterResponse::_internal_success() const {
   return _impl_.success_;
 }
-inline bool CreateRouterResponse::success() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterResponse.success)
+inline bool RouterResponse::success() const {
+  // @@protoc_insertion_point(field_get:server.RouterResponse.success)
   return _internal_success();
 }
-inline void CreateRouterResponse::_internal_set_success(bool value) {
+inline void RouterResponse::_internal_set_success(bool value) {
   
   _impl_.success_ = value;
 }
-inline void CreateRouterResponse::set_success(bool value) {
+inline void RouterResponse::set_success(bool value) {
   _internal_set_success(value);
-  // @@protoc_insertion_point(field_set:server.CreateRouterResponse.success)
+  // @@protoc_insertion_point(field_set:server.RouterResponse.success)
 }
 
 // string error_detail = 3;
-inline void CreateRouterResponse::clear_error_detail() {
+inline void RouterResponse::clear_error_detail() {
   _impl_.error_detail_.ClearToEmpty();
 }
-inline const std::string& CreateRouterResponse::error_detail() const {
-  // @@protoc_insertion_point(field_get:server.CreateRouterResponse.error_detail)
+inline const std::string& RouterResponse::error_detail() const {
+  // @@protoc_insertion_point(field_get:server.RouterResponse.error_detail)
   return _internal_error_detail();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CreateRouterResponse::set_error_detail(ArgT0&& arg0, ArgT... args) {
+void RouterResponse::set_error_detail(ArgT0&& arg0, ArgT... args) {
  
  _impl_.error_detail_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:server.CreateRouterResponse.error_detail)
+  // @@protoc_insertion_point(field_set:server.RouterResponse.error_detail)
 }
-inline std::string* CreateRouterResponse::mutable_error_detail() {
+inline std::string* RouterResponse::mutable_error_detail() {
   std::string* _s = _internal_mutable_error_detail();
-  // @@protoc_insertion_point(field_mutable:server.CreateRouterResponse.error_detail)
+  // @@protoc_insertion_point(field_mutable:server.RouterResponse.error_detail)
   return _s;
 }
-inline const std::string& CreateRouterResponse::_internal_error_detail() const {
+inline const std::string& RouterResponse::_internal_error_detail() const {
   return _impl_.error_detail_.Get();
 }
-inline void CreateRouterResponse::_internal_set_error_detail(const std::string& value) {
+inline void RouterResponse::_internal_set_error_detail(const std::string& value) {
   
   _impl_.error_detail_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CreateRouterResponse::_internal_mutable_error_detail() {
+inline std::string* RouterResponse::_internal_mutable_error_detail() {
   
   return _impl_.error_detail_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CreateRouterResponse::release_error_detail() {
-  // @@protoc_insertion_point(field_release:server.CreateRouterResponse.error_detail)
+inline std::string* RouterResponse::release_error_detail() {
+  // @@protoc_insertion_point(field_release:server.RouterResponse.error_detail)
   return _impl_.error_detail_.Release();
 }
-inline void CreateRouterResponse::set_allocated_error_detail(std::string* error_detail) {
+inline void RouterResponse::set_allocated_error_detail(std::string* error_detail) {
   if (error_detail != nullptr) {
     
   } else {
@@ -7008,7 +7074,7 @@ inline void CreateRouterResponse::set_allocated_error_detail(std::string* error_
     _impl_.error_detail_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:server.CreateRouterResponse.error_detail)
+  // @@protoc_insertion_point(field_set_allocated:server.RouterResponse.error_detail)
 }
 
 // -------------------------------------------------------------------
@@ -11427,7 +11493,7 @@ inline void WorkerToServer::set_seq_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:server.WorkerToServer.seq_id)
 }
 
-// .server.CreateRouterResponse create_router_res = 2;
+// .server.RouterResponse create_router_res = 2;
 inline bool WorkerToServer::_internal_has_create_router_res() const {
   return payload_case() == kCreateRouterRes;
 }
@@ -11445,11 +11511,11 @@ inline void WorkerToServer::clear_create_router_res() {
     clear_has_payload();
   }
 }
-inline ::server::CreateRouterResponse* WorkerToServer::release_create_router_res() {
+inline ::server::RouterResponse* WorkerToServer::release_create_router_res() {
   // @@protoc_insertion_point(field_release:server.WorkerToServer.create_router_res)
   if (_internal_has_create_router_res()) {
     clear_has_payload();
-    ::server::CreateRouterResponse* temp = _impl_.payload_.create_router_res_;
+    ::server::RouterResponse* temp = _impl_.payload_.create_router_res_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -11459,27 +11525,27 @@ inline ::server::CreateRouterResponse* WorkerToServer::release_create_router_res
     return nullptr;
   }
 }
-inline const ::server::CreateRouterResponse& WorkerToServer::_internal_create_router_res() const {
+inline const ::server::RouterResponse& WorkerToServer::_internal_create_router_res() const {
   return _internal_has_create_router_res()
       ? *_impl_.payload_.create_router_res_
-      : reinterpret_cast< ::server::CreateRouterResponse&>(::server::_CreateRouterResponse_default_instance_);
+      : reinterpret_cast< ::server::RouterResponse&>(::server::_RouterResponse_default_instance_);
 }
-inline const ::server::CreateRouterResponse& WorkerToServer::create_router_res() const {
+inline const ::server::RouterResponse& WorkerToServer::create_router_res() const {
   // @@protoc_insertion_point(field_get:server.WorkerToServer.create_router_res)
   return _internal_create_router_res();
 }
-inline ::server::CreateRouterResponse* WorkerToServer::unsafe_arena_release_create_router_res() {
+inline ::server::RouterResponse* WorkerToServer::unsafe_arena_release_create_router_res() {
   // @@protoc_insertion_point(field_unsafe_arena_release:server.WorkerToServer.create_router_res)
   if (_internal_has_create_router_res()) {
     clear_has_payload();
-    ::server::CreateRouterResponse* temp = _impl_.payload_.create_router_res_;
+    ::server::RouterResponse* temp = _impl_.payload_.create_router_res_;
     _impl_.payload_.create_router_res_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void WorkerToServer::unsafe_arena_set_allocated_create_router_res(::server::CreateRouterResponse* create_router_res) {
+inline void WorkerToServer::unsafe_arena_set_allocated_create_router_res(::server::RouterResponse* create_router_res) {
   clear_payload();
   if (create_router_res) {
     set_has_create_router_res();
@@ -11487,16 +11553,16 @@ inline void WorkerToServer::unsafe_arena_set_allocated_create_router_res(::serve
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:server.WorkerToServer.create_router_res)
 }
-inline ::server::CreateRouterResponse* WorkerToServer::_internal_mutable_create_router_res() {
+inline ::server::RouterResponse* WorkerToServer::_internal_mutable_create_router_res() {
   if (!_internal_has_create_router_res()) {
     clear_payload();
     set_has_create_router_res();
-    _impl_.payload_.create_router_res_ = CreateMaybeMessage< ::server::CreateRouterResponse >(GetArenaForAllocation());
+    _impl_.payload_.create_router_res_ = CreateMaybeMessage< ::server::RouterResponse >(GetArenaForAllocation());
   }
   return _impl_.payload_.create_router_res_;
 }
-inline ::server::CreateRouterResponse* WorkerToServer::mutable_create_router_res() {
-  ::server::CreateRouterResponse* _msg = _internal_mutable_create_router_res();
+inline ::server::RouterResponse* WorkerToServer::mutable_create_router_res() {
+  ::server::RouterResponse* _msg = _internal_mutable_create_router_res();
   // @@protoc_insertion_point(field_mutable:server.WorkerToServer.create_router_res)
   return _msg;
 }
@@ -12055,7 +12121,7 @@ inline void ServerToWorker::set_seq_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:server.ServerToWorker.seq_id)
 }
 
-// .server.CreateRouterRequest create_router_req = 2;
+// .server.RouterRequest create_router_req = 2;
 inline bool ServerToWorker::_internal_has_create_router_req() const {
   return payload_case() == kCreateRouterReq;
 }
@@ -12073,11 +12139,11 @@ inline void ServerToWorker::clear_create_router_req() {
     clear_has_payload();
   }
 }
-inline ::server::CreateRouterRequest* ServerToWorker::release_create_router_req() {
+inline ::server::RouterRequest* ServerToWorker::release_create_router_req() {
   // @@protoc_insertion_point(field_release:server.ServerToWorker.create_router_req)
   if (_internal_has_create_router_req()) {
     clear_has_payload();
-    ::server::CreateRouterRequest* temp = _impl_.payload_.create_router_req_;
+    ::server::RouterRequest* temp = _impl_.payload_.create_router_req_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -12087,27 +12153,27 @@ inline ::server::CreateRouterRequest* ServerToWorker::release_create_router_req(
     return nullptr;
   }
 }
-inline const ::server::CreateRouterRequest& ServerToWorker::_internal_create_router_req() const {
+inline const ::server::RouterRequest& ServerToWorker::_internal_create_router_req() const {
   return _internal_has_create_router_req()
       ? *_impl_.payload_.create_router_req_
-      : reinterpret_cast< ::server::CreateRouterRequest&>(::server::_CreateRouterRequest_default_instance_);
+      : reinterpret_cast< ::server::RouterRequest&>(::server::_RouterRequest_default_instance_);
 }
-inline const ::server::CreateRouterRequest& ServerToWorker::create_router_req() const {
+inline const ::server::RouterRequest& ServerToWorker::create_router_req() const {
   // @@protoc_insertion_point(field_get:server.ServerToWorker.create_router_req)
   return _internal_create_router_req();
 }
-inline ::server::CreateRouterRequest* ServerToWorker::unsafe_arena_release_create_router_req() {
+inline ::server::RouterRequest* ServerToWorker::unsafe_arena_release_create_router_req() {
   // @@protoc_insertion_point(field_unsafe_arena_release:server.ServerToWorker.create_router_req)
   if (_internal_has_create_router_req()) {
     clear_has_payload();
-    ::server::CreateRouterRequest* temp = _impl_.payload_.create_router_req_;
+    ::server::RouterRequest* temp = _impl_.payload_.create_router_req_;
     _impl_.payload_.create_router_req_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ServerToWorker::unsafe_arena_set_allocated_create_router_req(::server::CreateRouterRequest* create_router_req) {
+inline void ServerToWorker::unsafe_arena_set_allocated_create_router_req(::server::RouterRequest* create_router_req) {
   clear_payload();
   if (create_router_req) {
     set_has_create_router_req();
@@ -12115,16 +12181,16 @@ inline void ServerToWorker::unsafe_arena_set_allocated_create_router_req(::serve
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:server.ServerToWorker.create_router_req)
 }
-inline ::server::CreateRouterRequest* ServerToWorker::_internal_mutable_create_router_req() {
+inline ::server::RouterRequest* ServerToWorker::_internal_mutable_create_router_req() {
   if (!_internal_has_create_router_req()) {
     clear_payload();
     set_has_create_router_req();
-    _impl_.payload_.create_router_req_ = CreateMaybeMessage< ::server::CreateRouterRequest >(GetArenaForAllocation());
+    _impl_.payload_.create_router_req_ = CreateMaybeMessage< ::server::RouterRequest >(GetArenaForAllocation());
   }
   return _impl_.payload_.create_router_req_;
 }
-inline ::server::CreateRouterRequest* ServerToWorker::mutable_create_router_req() {
-  ::server::CreateRouterRequest* _msg = _internal_mutable_create_router_req();
+inline ::server::RouterRequest* ServerToWorker::mutable_create_router_req() {
+  ::server::RouterRequest* _msg = _internal_mutable_create_router_req();
   // @@protoc_insertion_point(field_mutable:server.ServerToWorker.create_router_req)
   return _msg;
 }
